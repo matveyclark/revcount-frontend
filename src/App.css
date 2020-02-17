@@ -84,7 +84,7 @@ body {
 .hero--list {
     display: flex;
     flex-wrap: wrap;
-    margin-top: .6em;
+    margin-top: .8em;
 }
 
 .hero--list__item {
@@ -124,4 +124,34 @@ body {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left-width: 0;
+}
+
+/* About component */
+
+.about-section {
+    background-color: #bbc4ef;
+    color: #fff;
+    margin-top: 15em;
+    padding: 1em 0 30em 0;
+}
+
+.about--title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: .2em;
+}
+
+.about--scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about--scroll__text {
+    font-size: .85rem;
+}
+
+.about--scroll__icon {
+    width: 2%;
 }
