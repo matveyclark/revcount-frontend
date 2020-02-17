@@ -234,6 +234,8 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2em;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .role--pick {

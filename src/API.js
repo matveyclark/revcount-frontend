@@ -2,6 +2,7 @@
 const baseURI = 'http://localhost:3000'
 const loginURI = baseURI + '/login'
 const validateURI = baseURI + '/validate'
+const registerClientURI = baseURI + '/register'
 
 // api
 const get = url => {
@@ -36,3 +37,15 @@ exports.login = user => {
 }
 
 exports.validate = () => get(validateURI)
+
+exports.registerClient = client => {
+    let bodyObject = {
+        client: {
+            first_name: client.firstName,
+            last_name: client.lastName,
+            email: client.email,
+            password: client.password
+        }
+    }
+    return post(registerClientURI, bodyObject)
+}

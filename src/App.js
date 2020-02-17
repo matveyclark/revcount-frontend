@@ -27,7 +27,7 @@ class App extends React.Component {
         <Header />
         <Route exact path="/" component={(props) => <Homepage {...props} />} />
         <Route path="/login" component={(props) => <LoginForm login={this.props.login} {...props} />} />
-        <Route path="/register" component={(props) => <RegisterForm {...props} />} />
+        <Route path="/register" component={(props) => <RegisterForm {...props} login={this.props.login} />} />
         <Route path="/dashboard" component={Dashboard} />
       </Router>
     );
