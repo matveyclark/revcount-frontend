@@ -77,21 +77,28 @@ body {
 
 .hero {
     padding: 0 2em;
-    margin-top: 12em;
+    margin-top: 8em;
+    margin-bottom: 8em;
     font-size: 1.5rem;
     text-align: center;
+}
+
+.hero--title {
+    margin-bottom: 1em;
+    font-size: 3rem;
 }
 
 .hero--subtitle {
     letter-spacing: 1.3px;
     margin-top: .5em;
+    margin-bottom: 1em;
     font-weight: 200;
 }
 
 .hero--list {
     display: flex;
     flex-wrap: wrap;
-    margin-top: .8em;
+    margin-top: 1.5em;
 }
 
 .hero--list__item {
