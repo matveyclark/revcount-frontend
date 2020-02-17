@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 
 export default class EmailInputForm extends Component {
+
+    state = {
+        email: ''
+    }
+
     render() {
         return (
             <form className="email-form">

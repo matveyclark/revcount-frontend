@@ -3,6 +3,13 @@ const initialState = {
 }
 
 const userReducer = (state = initialState, action) => {
+
+    if(action.type === 'LOGIN_USER') {
+        return {
+            username: action.payload
+        }
+    }
+
     return state
 }
 
