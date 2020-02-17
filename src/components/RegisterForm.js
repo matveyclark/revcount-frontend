@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class RegisterForm extends Component {
 
     state = {
-        isClient: null
+        isClient: true
     }
 
     registerProjectManager = () => {
@@ -23,6 +23,7 @@ class RegisterForm extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <section className="register">
                 <div className="wrapper form--wrapper">                    
@@ -30,7 +31,7 @@ class RegisterForm extends Component {
                         <span className="highlight">Hey<br /></span> there! <span role="img" aria-label="wave-emoji">🥳</span>
                     </h1>
                     <RegisterRolePicker registerProjectManager={this.registerProjectManager} registerClient={this.registerClient} />
-                    {this.state.isClient ? <ClientRegisterForm /> : <PMRegisterForm />}
+                    {this.state.isClient ? <ClientRegisterForm starterEmail={this.props.starterEmail} /> : <PMRegisterForm starterEmail={this.props.starterEmail} />}
                 </div>
             </section>
         )
@@ -39,7 +40,7 @@ class RegisterForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        starterEmail: state.starterEmail
+        starterEmail: state.userReducer.starterEmail
     }
 }
 
