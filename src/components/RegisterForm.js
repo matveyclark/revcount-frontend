@@ -26,13 +26,15 @@ class RegisterForm extends Component {
         console.log(this.props)
         return (
             <section className="register">
-                <div className="wrapper form--wrapper">                    
-                    <h1 className="register--title">
-                        <span className="highlight">Hey<br /></span> there! <span role="img" aria-label="wave-emoji">🥳</span>
-                    </h1>
-                    <RegisterRolePicker registerProjectManager={this.registerProjectManager} registerClient={this.registerClient} />
-                    {this.state.isClient ? <ClientRegisterForm starterEmail={this.props.starterEmail} login={this.props.login} /> : <PMRegisterForm starterEmail={this.props.starterEmail} login={this.props.login} />}
-                </div>
+                <div className="wrapper">
+                    <div className="form--wrapper">                 
+                        <h1 className="register--title">
+                            <span className="highlight">Hey<br /></span> there! <span role="img" aria-label="wave-emoji">🥳</span>
+                        </h1>
+                        <RegisterRolePicker registerProjectManager={this.registerProjectManager} registerClient={this.registerClient} isClient={this.state.isClient} />
+                        {this.state.isClient ? <ClientRegisterForm starterEmail={this.props.starterEmail} login={this.props.login} /> : <PMRegisterForm starterEmail={this.props.starterEmail} login={this.props.login} />}
+                    </div>
+                </div>   
             </section>
         )
     }
