@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import API from '../API'
 
-class LoginForm extends Component {
+export default class LoginForm extends Component {
 
     state = {
         email: '',
@@ -48,13 +47,3 @@ class LoginForm extends Component {
         )
     }
 }
-
-const mapDispatchToProps = dispatch => {
-    return {
-        login: username => {
-            dispatch({ type: 'LOGIN_USER', payload: username })
-        }
-    }
-}
-
-export default connect(null, mapDispatchToProps)(LoginForm)
