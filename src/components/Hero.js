@@ -14,6 +14,12 @@ export default class Hero extends Component {
                     </p>
                 </div>
                 <EmailInputForm />
+                <div className="hero--list">
+                    <p className="hero--list__item">🧠 keep clients informed</p>
+                    <p className="hero--list__item">🙌 manage expectations</p>
+                    <p className="hero--list__item">💸 leave scrop creep in the past</p>
+                    <p className="hero--list__item">📦 easy delivery</p>
+                </div>
             </section>
         )
     }

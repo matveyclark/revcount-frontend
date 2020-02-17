@@ -81,6 +81,17 @@ body {
     font-weight: 200;
 }
 
+.hero--list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: .6em;
+}
+
+.hero--list__item {
+    width: 50%;
+    font-size: 1rem;
+}
+
 /* Email Signup Form component */
 
 .email-form {
