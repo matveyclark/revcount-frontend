@@ -15,13 +15,14 @@ export default class Homepage extends Component {
                         <p className="hero--subtitle">
                             A better and more visual way of managing your clients' expectaions about project revisions
                         </p>
-                    </div>
+                    
                     <EmailInputForm />
                     <div className="hero--list">
                         <p className="hero--list__item"><span role="img" aria-label="brain-emoji">🧠</span> keep clients informed </p>
                         <p className="hero--list__item"><span role="img" aria-label="hands-emoji">🙌</span> manage expectations</p>
                         <p className="hero--list__item"><span role="img" aria-label="cash-emoji">💸</span> leave scope creep in the past</p>
                         <p className="hero--list__item"><span role="img" aria-label="package-emoji">📦</span> easy delivery</p>
+                    </div>
                     </div>
                 </section>
                 <About />

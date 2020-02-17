@@ -30,16 +30,13 @@ export default class LoginForm extends Component {
             <section className="login">
                 <div className="wrapper">
                     <div className="form--wrapper">
-                        <h1 className="login--title">Log In</h1>
-                        <p className="login--subtext">
-                            Welcome back <span role="img" aria-label="wave-emoji">👋</span><br /> Login and start revising!
-                        </p>
+                        <h1 className="login--title"><span className="highlight">Welcome </span>Back!<span className="login--wave__icon" role="img" aria-label="wave-emoji">👋</span> </h1>
                         <form onSubmit={this.handleSubmit} className="login--form">
                             <label className="login--label" htmlFor="email">Email address</label>
                             <input onChange={this.handleChange} type="text" name="email" className="login--input"/>
                             <label className="login--label" htmlFor="password">Password</label>
                             <input onChange={this.handleChange} type="password" name="password" className="login--input"/>
-                            <input className="login--input login--input__submit" type="submit" value="Log In" />
+                            <button className="login--input login--input__submit btn btn--register" type="submit">Log In</button>
                         </form>
                     </div>
                 </div>

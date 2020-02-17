@@ -4,6 +4,7 @@ import Header from './components/Header'
 import LoginForm from './components/LoginForm'
 import Homepage from './components/Homepage'
 import Dashboard from './components/Dashboard'
+import RegisterForm from './components/RegisterForm'
 import { connect } from 'react-redux'
 import API from './API'
 import './App.css';
@@ -26,6 +27,7 @@ class App extends React.Component {
         <Header />
         <Route exact path="/" component={(props) => <Homepage {...props} />} />
         <Route path="/login" component={(props) => <LoginForm login={this.props.login} {...props} />} />
+        <Route path="/register" component={(props) => <RegisterForm {...props} />} />
         <Route path="/dashboard" component={Dashboard} />
       </Router>
     );
