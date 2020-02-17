@@ -23,7 +23,6 @@ class RegisterForm extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <section className="register">
                 <div className="wrapper">

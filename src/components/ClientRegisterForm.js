@@ -10,6 +10,15 @@ export default class ClientRegisterForm extends Component {
         password: null
     }
 
+    componentDidMount() {
+        if(this.props.starterEmail) {
+            this.setState({
+                ...this.state,
+                email: this.props.starterEmail
+            })
+        }
+    }
+
     handleChange = e => {
         const { name, value } = e.target
         return this.setState({
