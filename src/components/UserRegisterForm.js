@@ -27,9 +27,9 @@ export default class PMRegisterForm extends Component {
         })
     }
 
-    createPM = e => {
+    registerUser = e => {
         e.preventDefault()
-        API.registerPM(this.state)
+        API.register(this.state, this.props.isClient)
         .then(data => {
             console.log(data)
             if(data.error) throw Error(data.error)
@@ -40,7 +40,7 @@ export default class PMRegisterForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.createPM} className="register--form">
+            <form onSubmit={this.registerUser} className="register--form">
                 <label htmlFor="firstName" className="login--label">first name</label>
                 <input onChange={this.handleChange} name="firstName" type="text" className="login--input"/>
                 <label htmlFor="lastName" className="login--label">last name</label>

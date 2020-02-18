@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import RegisterRolePicker from './RegisterRolePicker'
 import API from '../API'
 
 export default class LoginForm extends Component {
 
     state = {
         email: '',
-        password: '',
-        isClient: true
+        password: ''
     }
 
     handleSubmit = e => {
@@ -27,25 +25,12 @@ export default class LoginForm extends Component {
         })
     }
 
-    loginClient = () => {
-        return this.setState({
-            isClient: true
-        })
-    }
-
-    loginPM = () => {
-        return this.setState({
-            isClient: false
-        })
-    }
-
     render() {
         return (
             <section className="login">
                 <div className="wrapper">
                     <div className="form--wrapper">
                         <h1 className="login--title"><span className="highlight">Welcome<br /> </span>Back!<span className="login--wave__icon" role="img" aria-label="wave-emoji">👋</span> </h1>
-                        <RegisterRolePicker isClient={this.state.isClient} loginClient={this.loginClient} loginPM={this.loginPM} />
                         <form onSubmit={this.handleSubmit} className="login--form">
                             <label className="login--label" htmlFor="email">Email address</label>
                             <input onChange={this.handleChange} type="text" name="email" className="login--input"/>

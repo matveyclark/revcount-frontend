@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import ClientRegisterForm from '../components/ClientRegisterForm'
 import RegisterRolePicker from '../components/RegisterRolePicker'
-import PMRegisterForm from '../components/PMRegisterForm'
+import UserRegisterForm from '../components/UserRegisterForm'
 import { connect } from 'react-redux'
 
 class RegisterForm extends Component {
@@ -31,7 +30,7 @@ class RegisterForm extends Component {
                             <span className="highlight">Hey<br /></span> there! <span role="img" aria-label="wave-emoji">🥳</span>
                         </h1>
                         <RegisterRolePicker registerProjectManager={this.registerProjectManager} registerClient={this.registerClient} isClient={this.state.isClient} />
-                        {this.state.isClient ? <ClientRegisterForm starterEmail={this.props.starterEmail} login={this.props.login} /> : <PMRegisterForm starterEmail={this.props.starterEmail} login={this.props.login} />}
+                        <UserRegisterForm starterEmail={this.props.starterEmail} login={this.props.login} isClient={this.state.isClient} />
                     </div>
                 </div>   
             </section>
