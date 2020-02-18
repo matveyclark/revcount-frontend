@@ -12,11 +12,12 @@ class EmailInputForm extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         saveEmail: e => {
             e.preventDefault()
             dispatch({ type: 'ADD_STARTER_EMAIL', payload: e.target.email.value })
+            ownProps.history.push('/register')
         }
     }
 }

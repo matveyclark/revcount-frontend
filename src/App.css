@@ -241,10 +241,10 @@ body {
 .role--pick {
     padding: 1em;
     cursor: pointer;
+    width: 50%;
     font-size: .8rem;
     background-color: #fff;
     border: 2px solid #6534ff;
-    border-radius: 8px;
     margin-bottom: 1em;
     font-weight: 900;
 }
