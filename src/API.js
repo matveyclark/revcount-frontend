@@ -3,6 +3,7 @@ const baseURI = 'http://localhost:3000'
 const loginURI = baseURI + '/login'
 const validateURI = baseURI + '/validate'
 const registerClientURI = baseURI + '/register'
+const registerPmURI = baseURI + '/register/pm' 
 
 // api
 const get = url => {
@@ -26,7 +27,11 @@ const post = (url, bodyObject) => {
 }
 
 // export functions
-exports.login = user => {
+// global
+exports.validate = () => get(validateURI)
+
+// client
+exports.loginClient = user => {
     let bodyObject = {
         client: {
             email: user.email,
@@ -35,8 +40,6 @@ exports.login = user => {
     }
     return post(loginURI, bodyObject)
 }
-
-exports.validate = () => get(validateURI)
 
 exports.registerClient = client => {
     let bodyObject = {
@@ -48,4 +51,18 @@ exports.registerClient = client => {
         }
     }
     return post(registerClientURI, bodyObject)
+}
+
+// project manager
+exports.registerPM = pm => {
+    let bodyObject = {
+        project_manager: {
+            first_name: pm.firstName,
+            last_name: pm.lastName,
+            email: pm.email,
+            password: pm.password,
+            company_name: pm.companyName
+        }
+    }
+    return post(registerPmURI, bodyObject)
 }

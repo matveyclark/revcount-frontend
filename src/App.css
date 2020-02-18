@@ -77,10 +77,10 @@ body {
 
 .hero {
     padding: 0 2em;
-    margin-top: 8em;
-    margin-bottom: 8em;
+    padding-top: 11em;
     font-size: 1.5rem;
     text-align: center;
+    height: 95vh;
 }
 
 .hero--title {
@@ -145,7 +145,6 @@ body {
 .about-section {
     background-color: #bbc4ef;
     color: #fff;
-    margin-top: 15em;
     padding: 1em 0 30em 0;
 }
 

@@ -31,7 +31,7 @@ export default class ClientRegisterForm extends Component {
         API.registerClient(this.state)
         .then(data => {
             if(data.error) throw Error(data.error)
-            this.props.login(data.data.email)
+            this.props.login(data.data.email, data.user_type)
             localStorage.token = data.token
         }).catch(error => alert(error))
     }

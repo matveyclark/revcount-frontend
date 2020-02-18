@@ -1,5 +1,6 @@
 const initialState = {
     username: null,
+    userType: null,
     starterEmail: null
 }
 
@@ -8,7 +9,8 @@ const userReducer = (state = initialState, action) => {
     if(action.type === 'LOGIN_USER') {
         return {
             ...state,
-            username: action.payload
+            username: action.payload.username,
+            userType: action.payload.userType
         }
     }
 

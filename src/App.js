@@ -16,7 +16,7 @@ class App extends React.Component {
         API.validate(this.props.username)
         .then(data => {
             if(data.error) throw Error(data.error)
-            this.props.login(data.email)
+            this.props.login(data.email, data.user_type)
         }).catch(error => alert(error))
     }
   }
@@ -36,15 +36,16 @@ class App extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-      login: username => {
-          dispatch({ type: 'LOGIN_USER', payload: username })
+      login: (username, userType) => {
+          dispatch({ type: 'LOGIN_USER', payload: {username, userType} })
       }
   }
 }
 
 const mapStateToProps = state => {
   return {
-    username: state.username
+    username: state.username,
+    userType: state.userType
   }
 }
 
