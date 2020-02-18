@@ -12,10 +12,10 @@ export default class LoginForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        API.loginClient(this.state)
+        API.login(this.state)
         .then(data => {
             if(data.error) throw Error(data.error)
-            this.props.login(data.user, data.userType)
+            this.props.login(data.user, data.user_type)
             localStorage.token = data.token
         }).catch(error => alert(error))
     }

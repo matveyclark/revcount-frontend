@@ -31,14 +31,24 @@ const post = (url, bodyObject) => {
 exports.validate = () => get(validateURI)
 
 // client
-exports.loginClient = user => {
-    let bodyObject = {
-        client: {
-            email: user.email,
-            password: user.password
+exports.login = user => {
+    if(user.isClient) {
+        let bodyObject = {
+            client: {
+                email: user.email,
+                password: user.password
+            }
         }
+        return post(loginURI, bodyObject)
+    } else {
+        let bodyObject = {
+            project_manager: {
+                email: user.email,
+                password: user.password
+            }
+        }
+        return post(loginURI, bodyObject)
     }
-    return post(loginURI, bodyObject)
 }
 
 exports.registerClient = client => {
