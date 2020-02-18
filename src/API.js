@@ -6,7 +6,7 @@ const registerClientURI = baseURI + '/register'
 const registerPmURI = baseURI + '/register/pm' 
 
 // api
-const get = url => {
+const get = (url) => {
     return fetch(url, {
         headers: {
             authorization: localStorage.token

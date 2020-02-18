@@ -13,15 +13,17 @@ class App extends React.Component {
 
   componentDidMount() {
     if(localStorage.token) {
-        API.validate(this.props.username)
-        .then(data => {
-            if(data.error) throw Error(data.error)
-            this.props.login(data.email, data.user_type)
-        }).catch(error => alert(error))
+      API.validate()
+      .then(data => {
+          if(data.error) throw Error(data.error)
+          this.props.login(data.email, data.user_type)
+          localStorage.token = data.token
+      }).catch(error => alert(error))
     }
   }
 
   render() {
+    console.log(this.props)
     return (
       <Router>
         <Header />
@@ -44,8 +46,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    username: state.username,
-    userType: state.userType
+    username: state.userReducer.username,
+    userType: state.userReducer.userType
   }
 }
 
