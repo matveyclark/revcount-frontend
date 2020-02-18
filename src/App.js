@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Header from './components/Header'
+import Header from './components/Layout/Header'
 import LoginForm from './components/LoginForm'
-import Homepage from './components/Homepage'
-import Dashboard from './components/Dashboard'
+import Homepage from './components/Pages/Homepage'
+import Dashboard from './components/Pages/Dashboard'
 import RegisterForm from './components/RegisterForm'
 import { connect } from 'react-redux'
 import API from './API'

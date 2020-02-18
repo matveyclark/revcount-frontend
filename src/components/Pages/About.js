@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import downArrow from '../images/scroll-down-icon.svg'
+import downArrow from '../../images/scroll-down-icon.svg'
 
 export default class About extends Component {
     render() {
