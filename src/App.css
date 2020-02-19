@@ -280,9 +280,36 @@ body {
     border-radius: 8px;
 }
 
-.dropdown--option {
+.dropdown--options {
     position: absolute;
+}
+
+.dropdown--option {
     display: none;
-    cursor: pointer;
-    left: 0;
+}
+
+.dashboard--error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
+}
+
+.dashboard--error__title {
+    font-size: 7rem;
+}
+
+.dashboard--error__subtitle {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.error--btn {
+    font-size: 1rem;
+    margin-top: 2em;
+    color: #6534ff;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-decoration: none;
 }
