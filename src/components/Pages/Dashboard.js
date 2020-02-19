@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
-class Dashboard extends Component {
+export default class Dashboard extends Component {
+
+    componentDidMount() {
+        if(this.props.username === null) {
+            this.props.history.push('/login')
+        }
+    }
+
     render() {
+        console.log(this.props.username)
         return (
             <div>
                 <h1>This is the user dashboard</h1>
@@ -10,18 +17,3 @@ class Dashboard extends Component {
         )
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        username: state.userReducer.username,
-        userType: state.userReducer.userType
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

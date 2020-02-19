@@ -21,6 +21,14 @@ const userReducer = (state = initialState, action) => {
         }
     }
 
+    if(action.type === 'LOGOUT_USER') {
+        return {
+            ...state,
+            username: null,
+            userType: null
+        }
+    }
+
     return state
 }
 

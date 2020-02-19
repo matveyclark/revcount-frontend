@@ -30,7 +30,7 @@ class RegisterForm extends Component {
                             <span className="highlight">Hey<br /></span> there! <span role="img" aria-label="wave-emoji">🥳</span>
                         </h1>
                         <RegisterRolePicker registerProjectManager={this.registerProjectManager} registerClient={this.registerClient} isClient={this.state.isClient} />
-                        <UserRegisterForm starterEmail={this.props.starterEmail} login={this.props.login} isClient={this.state.isClient} />
+                        <UserRegisterForm history={this.props.history} starterEmail={this.props.starterEmail} login={this.props.login} isClient={this.state.isClient} />
                     </div>
                 </div>   
             </section>

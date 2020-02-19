@@ -31,10 +31,10 @@ export default class PMRegisterForm extends Component {
         e.preventDefault()
         API.register(this.state, this.props.isClient)
         .then(data => {
-            console.log(data)
             if(data.error) throw Error(data.error)
             this.props.login(data.data.email, data.user_type)
             localStorage.token = data.token
+            this.props.history.push('/dashboard')
         }).catch(error => alert(error))
     }
 
