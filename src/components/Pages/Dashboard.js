@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import API from '../../API'
 import { connect } from 'react-redux'
 import ProjectPicker from '../ProjectPicker'
+import RevisionList from '../RevisionList'
 
 class Dashboard extends Component {
-    
+
     componentDidMount() {
         if(this.props.username === null) {
             return this.props.history.push('/login')
@@ -24,6 +25,7 @@ class Dashboard extends Component {
                     <div className="dashboard--header">
                         <ProjectPicker projects={this.props.projects} selectProject={this.props.selectProject} selectedProject={this.props.selectedProject} />
                     </div>
+                    <RevisionList selectedProject={this.props.selectedProject} />
                 </div>
             </section>
         )
