@@ -3,6 +3,7 @@ const baseURI = 'http://localhost:3000'
 const loginURI = baseURI + '/login'
 const registerURI = baseURI + '/register'
 const validateURI = baseURI + '/validate'
+const projectsURI = baseURI + '/projects'
 
 // api
 const get = (url) => {
@@ -52,3 +53,6 @@ exports.register = (user, userType) => {
     }
     return post(registerURI, bodyObject)
 }
+
+// projects
+exports.getProjects = () => get(projectsURI)

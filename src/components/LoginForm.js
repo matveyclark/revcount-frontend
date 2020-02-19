@@ -15,6 +15,7 @@ export default class LoginForm extends Component {
             if(data.error) throw Error(data.error)
             this.props.login(data.user, data.user_type)
             localStorage.token = data.token
+            this.props.history.push('/dashboard')
         }).catch(error => alert(error))
     }
 
