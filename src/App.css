@@ -261,7 +261,11 @@ body {
 
 .dashboard--header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.available--projects {
+    position: relative;
 }
 
 .available--projects:hover *{
@@ -270,13 +274,15 @@ body {
 
 .dropdown {
     font-size: 1rem;
-    padding: 1.2em;
-    background-color: red;
+    padding: .5em 1.5em;
     width: 100%;
-    position: relative;
+    border: 2px solid #6534ff;
+    border-radius: 8px;
 }
 
 .dropdown--option {
     position: absolute;
     display: none;
+    cursor: pointer;
+    left: 0;
 }

@@ -2,7 +2,8 @@ const initialState = {
     username: null,
     userType: null,
     starterEmail: null,
-    projects: []
+    projects: [],
+    selectedProject: null
 }
 
 const userReducer = (state = initialState, action) => {
@@ -26,6 +27,13 @@ const userReducer = (state = initialState, action) => {
         return {
             ...state,
             projects: action.payload
+        }
+    }
+
+    if(action.type === 'SELECT_PROJECT') {
+        return {
+            ...state,
+            selectedProject: action.payload
         }
     }
 
