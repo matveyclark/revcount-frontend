@@ -7,7 +7,7 @@ export default class RevisionList extends Component {
 
     state = {
         revisions: [],
-        createNewRevision: false
+        showModal: false
     }
 
     componentDidMount() {
@@ -19,17 +19,25 @@ export default class RevisionList extends Component {
         }
     }
 
-    createNewRevision = () => {
+    showModal = () => {
         return this.setState({
-            createNewRevision: true
+            showModal: true
+        })
+    }
+
+    addRevision = revision => {
+        return this.setState({
+            ...this.state,
+            revisions: [...this.state.revisions, revision],
+            showModal: false
         })
     }
 
     render() {
         return (
             <React.Fragment>
-                <ProjectRevisions revisions={this.state.revisions} selectedProject={this.props.selectedProject} createNewRevision={this.state.createNewRevision} createRevision={this.createNewRevision} />
-                {this.state.createNewRevision && <NewRevisionModal selectedProject={this.props.selectedProject} />}
+                <ProjectRevisions revisions={this.state.revisions} selectedProject={this.props.selectedProject} showModal={this.state.showModal} showingModal={this.showModal} />
+                {this.state.showModal && <NewRevisionModal addRevision={this.addRevision} selectedProject={this.props.selectedProject} />}
             </React.Fragment>
         )
     }

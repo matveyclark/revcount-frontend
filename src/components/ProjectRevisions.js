@@ -14,7 +14,7 @@ export default class ProjectRevisions extends Component {
             <div className="revision-list">
                 <div className="revision--list__header">
                     <h4 className="project--select" >{this.props.selectedProject ? <h4 className="highlight" >{this.props.selectedProject.name}</h4> : "Please select a project"}</h4>
-                    <div onClick={this.props.createRevision} className="add--revision">
+                    <div onClick={this.props.showingModal} className="add--revision">
                         <img className="add--revision__icon" src={plus} alt="plus icon"/>
                     </div>
                 </div>

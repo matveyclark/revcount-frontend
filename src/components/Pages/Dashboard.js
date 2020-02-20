@@ -31,8 +31,8 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => {
     return {
-        projects: state.userReducer.projects,
-        selectedProject: state.userReducer.selectedProject
+        projects: state.projectReducer.projects,
+        selectedProject: state.projectReducer.selectedProject
     }
 }
 
