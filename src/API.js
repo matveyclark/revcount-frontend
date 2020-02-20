@@ -4,6 +4,7 @@ const loginURI = baseURI + '/login'
 const registerURI = baseURI + '/register'
 const validateURI = baseURI + '/validate'
 const projectsURI = baseURI + '/projects/'
+const newRevisionURI = baseURI + '/revision/new'
 
 // api
 const get = (url) => {
@@ -59,4 +60,15 @@ exports.getProjects = () => get(projectsURI)
 
 exports.getSingleProject = projectID => {
     return get(projectsURI + projectID) 
+}
+
+// revisions
+exports.createRevision = (e, projectId) => {
+    let bodyObject = {
+        revision: {
+            project_id: projectId,
+            description: e.target.revision.value
+        }
+    }
+    return post(newRevisionURI, bodyObject)
 }

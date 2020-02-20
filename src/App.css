@@ -418,3 +418,42 @@ body {
     background-color: rgba(245, 215, 110, .6);
     color: #e67e22;
 }
+
+/* Create revision modal */
+
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal--element {
+    width: 36rem;
+    height: 20rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.modal--header {
+    font-size: 2rem;
+}
+
+.modal--form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal--submitbtn {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.modal--input {
+    width: 20rem;
+    height: 10rem;
+    margin: 0 auto;
+}

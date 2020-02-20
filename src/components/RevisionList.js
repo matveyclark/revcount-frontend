@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProjectRevisions from './ProjectRevisions'
+import NewRevisionModal from './NewRevisionModal'
 import API from '../API'
 
 export default class RevisionList extends Component {
@@ -28,6 +29,7 @@ export default class RevisionList extends Component {
         return (
             <React.Fragment>
                 <ProjectRevisions revisions={this.state.revisions} selectedProject={this.props.selectedProject} createNewRevision={this.state.createNewRevision} createRevision={this.createNewRevision} />
+                {this.state.createNewRevision && <NewRevisionModal selectedProject={this.props.selectedProject} />}
             </React.Fragment>
         )
     }
