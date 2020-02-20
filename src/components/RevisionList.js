@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import ProjectRevisions from './ProjectRevisions'
 import API from '../API'
 
 export default class RevisionList extends Component {
 
     state = {
-        revisions: []
+        revisions: [],
+        createNewRevision: false
     }
 
     componentDidMount() {
@@ -16,15 +18,17 @@ export default class RevisionList extends Component {
         }
     }
 
-    renderRevisions = () => {
-        return this.state.revisions.map(revision => <li>{revision.description}</li>)
+    createNewRevision = () => {
+        return this.setState({
+            createNewRevision: true
+        })
     }
 
     render() {
         return (
-            <ul className="revision-list">
-                {this.state.revisions.length > 0 && this.renderRevisions()}
-            </ul>
+            <React.Fragment>
+                <ProjectRevisions revisions={this.state.revisions} selectedProject={this.props.selectedProject} createNewRevision={this.state.createNewRevision} createRevision={this.createNewRevision} />
+            </React.Fragment>
         )
     }
 }

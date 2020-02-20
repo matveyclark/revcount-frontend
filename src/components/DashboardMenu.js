@@ -16,13 +16,12 @@ export default class DashboardMenu extends Component {
     renderProjects = () => {
         if(this.state.viewProjects === true) {
             return this.props.projects.map(project => {
-                return <li className="dashboard--list__item" ><Link className="dashboard--menu__link dashboard--menu__project"><span className="dashboard--link__icon" role="img" aria-label="hands-emoji" >🧠</span>{project.name}</Link></li>
+                return <li onClick={() => {this.props.selectProject(project)}} className="dashboard--list__item" ><Link className="dashboard--menu__link dashboard--menu__project"><span className="dashboard--link__icon" role="img" aria-label="hands-emoji" >🧠</span>{project.name}</Link></li>
             })
         }
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="dashboard--menu">
                 <div className="dashboard--menu__section">

@@ -21,10 +21,7 @@ class Dashboard extends Component {
         return (
             <section>
                 <div className="dashboard">
-                    {/* <div className="dashboard--header"> */}
-                        {/* {this.props.projects.length > 0 ? <ProjectPicker projects={this.props.projects} selectProject={this.props.selectProject} selectedProject={this.props.selectedProject} /> : <DashboardError />} */}
-                    {/* </div> */}
-                    <DashboardMenu projects={this.props.projects} />
+                    <DashboardMenu projects={this.props.projects} selectProject={this.props.selectProject} />
                     <RevisionList selectedProject={this.props.selectedProject} />
                 </div>
             </section>
