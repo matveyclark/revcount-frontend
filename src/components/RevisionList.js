@@ -21,7 +21,6 @@ export default class RevisionList extends Component {
     }
 
     render() {
-        console.log(this.state.revisions)
         return (
             <ul className="revision-list">
                 {this.state.revisions.length > 0 && this.renderRevisions()}

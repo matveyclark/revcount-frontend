@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import API from '../../API'
 import { connect } from 'react-redux'
-import ProjectPicker from '../ProjectPicker'
 import RevisionList from '../RevisionList'
-import DashboardError from '../DashboardError'
+import DashboardMenu from '../DashboardMenu'
 
 class Dashboard extends Component {
 
@@ -19,13 +18,13 @@ class Dashboard extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
-            <section className="dashboard">
-                <div className="wrapper">
-                    <div className="dashboard--header">
-                        {this.props.projects.length > 0 ? <ProjectPicker projects={this.props.projects} selectProject={this.props.selectProject} selectedProject={this.props.selectedProject} /> : <DashboardError />}
-                    </div>
+            <section>
+                <div className="dashboard">
+                    {/* <div className="dashboard--header"> */}
+                        {/* {this.props.projects.length > 0 ? <ProjectPicker projects={this.props.projects} selectProject={this.props.selectProject} selectedProject={this.props.selectedProject} /> : <DashboardError />} */}
+                    {/* </div> */}
+                    <DashboardMenu projects={this.props.projects} />
                     <RevisionList selectedProject={this.props.selectedProject} />
                 </div>
             </section>
