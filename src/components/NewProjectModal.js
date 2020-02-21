@@ -21,9 +21,10 @@ class NewProjectModal extends Component {
         e.preventDefault()
         return API.createNewProject(this.state)
         .then(data => {
+            if(data.error) throw Error(data.error)
             this.props.createProject(data.project)
             this.props.hideModal()
-        })
+        }).catch(error => alert(error))
     }
 
     render() {
@@ -52,7 +53,7 @@ class NewProjectModal extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         createProject: project => {
-            dispatch({ type: "ADD_PROJECT", payload: project})
+            dispatch({ type: "ADD_PROJECT", payload: project })
         }
     }
 }

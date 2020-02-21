@@ -21,7 +21,7 @@ class Dashboard extends Component {
         return (
             <section>
                 <div className="dashboard">
-                    <DashboardMenu projects={this.props.projects} selectProject={this.props.selectProject} />
+                    <DashboardMenu logout={this.props.logout} projects={this.props.projects} selectProject={this.props.selectProject} />
                     <RevisionList selectedProject={this.props.selectedProject} />
                 </div>
             </section>
@@ -43,6 +43,9 @@ const mapDispatchToProps = dispatch => {
         },
         selectProject: project => {
             dispatch({ type: 'SELECT_PROJECT', payload: project })
+        },
+        logout: () => {
+            dispatch({ type: "LOGOUT_USER" })
         }
     }
 }

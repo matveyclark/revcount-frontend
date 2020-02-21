@@ -22,7 +22,8 @@ const projectReducer = (state = initialState, action) => {
     if(action.type === 'ADD_PROJECT') {
         return {
             ...state, 
-            projects: [...state.projects, action.payload]
+            projects: [...state.projects, action.payload],
+            selectedProject: action.payload
         }
     }
 
