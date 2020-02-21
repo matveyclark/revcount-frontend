@@ -426,6 +426,7 @@ body {
     height: 100%;
     background-color: rgba(0,0,0,.4);
     position: fixed;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -440,20 +441,44 @@ body {
 
 .modal--header {
     font-size: 2rem;
+    color: #000;
 }
 
 .modal--form {
     display: flex;
     flex-direction: column;
+    height: 80%;
+    justify-content: space-evenly;
 }
 
 .modal--submitbtn {
-    width: 20%;
     margin: 0 auto;
+    padding: .5em 1.5em;
+    font-size: 1rem;
+    border: 2px solid #6534ff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.modal--submitbtn:hover {
+    background-color: #6534ff;
+    color: #fff;
 }
 
 .modal--input {
-    width: 20rem;
-    height: 10rem;
+    width: 50%;
+    height: 4rem;
     margin: 0 auto;
+    font-size: 2rem;
+}
+
+/* Creare project modal */
+
+.modal--label {
+    color: #000;
+}
+
+.modal--input.project {
+    height: 2rem;
 }

@@ -12,17 +12,17 @@ export default class NewRevisionModal extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="modal">
                 <div className="modal--element">
                     <h3 className="modal--header">
-                        Create a new <span className="highlight">revision <br /> <span role="img" aria-label="checkmark-icon">✅</span></span>
+                        Create a new <span className="highlight">revision <br /> </span>
                     </h3>
                     <form onSubmit={this.createRevision} className="modal--form">
-                        <textarea name="revision" className="modal--input" type="text"></textarea>
-                        <input className="modal--submitbtn" type="submit" value="Add Revision"></input>
+                        <input name="revision" className="modal--input" type="text"></input>
+                        <button className="modal--submitbtn" type="submit" value="Add Revision">Create Revision</button>
                     </form>
+                    <button onClick={this.props.hideModal}>Close</button>
                 </div>
             </div>
         )

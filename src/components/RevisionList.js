@@ -25,6 +25,12 @@ export default class RevisionList extends Component {
         })
     }
 
+    hideModal = () => {
+        return this.setState({
+            showModal: false
+        })
+    }
+
     addRevision = revision => {
         return this.setState({
             ...this.state,
@@ -37,7 +43,7 @@ export default class RevisionList extends Component {
         return (
             <React.Fragment>
                 <ProjectRevisions revisions={this.state.revisions} selectedProject={this.props.selectedProject} showModal={this.state.showModal} showingModal={this.showModal} />
-                {this.state.showModal && <NewRevisionModal addRevision={this.addRevision} selectedProject={this.props.selectedProject} />}
+                {this.state.showModal && <NewRevisionModal hideModal={this.hideModal} addRevision={this.addRevision} selectedProject={this.props.selectedProject} />}
             </React.Fragment>
         )
     }
