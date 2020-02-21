@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import API from '../API'
 
-export default class NewProjectModal extends Component {
+class NewProjectModal extends Component {
 
     state = {
         name: null,
@@ -16,6 +17,15 @@ export default class NewProjectModal extends Component {
         })
     }
 
+    createProject = e => {
+        e.preventDefault()
+        return API.createNewProject(this.state)
+        .then(data => {
+            this.props.createProject(data.project)
+            this.props.hideModal()
+        })
+    }
+
     render() {
         return (
             <div className="modal">
@@ -23,13 +33,13 @@ export default class NewProjectModal extends Component {
                     <h3 className="modal--header">
                         Create a new <span className="highlight">project <br /> </span>
                     </h3>
-                    <form className="modal--form">
+                    <form onSubmit={this.createProject} className="modal--form">
                         <label className="modal--label" htmlFor="name">Project name</label>
                         <input onChange={this.handleChange} className="modal--input project" type="text" name="name"/>
                         <label className="modal--label" htmlFor="maxRevisions">Max Revisions</label>
                         <input onChange={this.handleChange} className="modal--input project" type="number" name="maxRevisions" />
-                        <label className="modal--label" htmlFor="client">Client e-mail</label>
-                        <input onChange={this.handleChange} className="modal--input project" type="text" name="client" />
+                        <label className="modal--label" htmlFor="email">Client e-mail</label>
+                        <input onChange={this.handleChange} className="modal--input project" type="text" name="email" />
                         <button className="modal--submitbtn" type="submit" value="Add Revision">Create Project</button>
                     </form>
                     <button onClick={this.props.hideModal}>Close</button>
@@ -38,3 +48,13 @@ export default class NewProjectModal extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        createProject: project => {
+            dispatch({ type: "ADD_PROJECT", payload: project})
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(NewProjectModal)

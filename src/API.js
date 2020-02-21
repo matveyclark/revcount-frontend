@@ -22,7 +22,8 @@ const post = (url, bodyObject) => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Accept": "application/json"
+            "Accept": "application/json",
+            "Authorization": localStorage.token
         },
         body: JSON.stringify(bodyObject)
     }).then(resp => resp.json())
@@ -65,9 +66,11 @@ exports.getSingleProject = projectID => {
 
 exports.createNewProject = project => {
     let bodyObject = {
-        name: project.name,
-        max_revisions: project.maxRevisions,
-        email: project.email
+        project: {
+            name: project.name,
+            max_revisions: project.maxRevisions,
+            email: project.email
+            }
     }
     return post(newProjectURI, bodyObject)
 }
