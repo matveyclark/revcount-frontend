@@ -43,9 +43,11 @@ const mapDispatchToProps = dispatch => {
         },
         selectProject: project => {
             dispatch({ type: 'SELECT_PROJECT', payload: project })
+            dispatch({ type: 'CLEAR_REVISION' })
         },
         logout: () => {
             dispatch({ type: "LOGOUT_USER" })
+            localStorage.clear()
         }
     }
 }

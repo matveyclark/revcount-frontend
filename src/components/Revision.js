@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Revision extends Component {
     render() {
         return (
-            <div className="revision" >
+            <div onClick={() => this.props.selectRevision(this.props.revision)} className="revision" >
                 <p className="revision--info">{this.props.revision.description}</p>
                 <p className="revision--info">{this.props.revision.created_at}</p>
                 <p className="revision--info">{this.props.revision.updated_at}</p>

@@ -21,6 +21,7 @@ class NewProjectModal extends Component {
         e.preventDefault()
         return API.createNewProject(this.state)
         .then(data => {
+            console.log(data)
             if(data.error) throw Error(data.error)
             this.props.createProject(data.project)
             this.props.hideModal()

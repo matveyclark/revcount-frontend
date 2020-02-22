@@ -5,7 +5,8 @@ const registerURI = baseURI + '/register'
 const validateURI = baseURI + '/validate'
 const projectsURI = baseURI + '/projects/'
 const newRevisionURI = baseURI + '/revision/new'
-const newProjectURI = baseURI + '/project/new   '
+const newProjectURI = baseURI + '/project/new'
+const singleRevisionURI = baseURI + '/revision/'
 
 // api
 const get = (url) => {
@@ -49,6 +50,9 @@ exports.register = (user, userType) => {
     userType = userType ? "client" : "pm"
     let bodyObject = {
         user: {
+            first_name: user.firstName,
+            last_name: user.lastName,
+            company_name: user.companyName,
             email: user.email,
             password: user.password,
             user_type: userType
@@ -85,3 +89,6 @@ exports.createRevision = (e, projectId) => {
     }
     return post(newRevisionURI, bodyObject)
 }
+
+// comments
+exports.getRevisionComments = id => get(singleRevisionURI + id + '/comments')

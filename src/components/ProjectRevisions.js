@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import Revision from './Revision'
 import plus from '../images/plus-icon.svg'
+import { connect } from 'react-redux'
+import RevisionInfo from './RevisionInfo'
 
-export default class ProjectRevisions extends Component {
+class ProjectRevisions extends Component {
 
 
     renderRevisions = () => {
-        return this.props.revisions.map(revision => <Revision revision={revision} /> )
+        return this.props.revisions.map(revision => <Revision selectRevision={this.props.selectRevision} revision={revision} /> )
     }
 
     render() {
@@ -24,8 +26,24 @@ export default class ProjectRevisions extends Component {
                     <h4 className="revision--header__title">Updated on</h4>
                     <h4 className="revision--header__title">Status</h4>
                 </div>
-                {this.props.revisions.length > 0 && this.renderRevisions()}
+                {this.props.selectedRevision ? <RevisionInfo selectedRevision={this.props.selectedRevision} /> : this.renderRevisions()}
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        selectedRevision: state.revisionReducer.selectedRevision
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        selectRevision: revision => {
+            dispatch({ type: 'SELECT_REVISION', payload: revision })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectRevisions)

@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import userReducer from './userReducer'
 import projectReducer from './projectReducer'
+import revisionReducer from './revisionReducer'
 
 const appReducer =  combineReducers({
     userReducer,
-    projectReducer
+    projectReducer,
+    revisionReducer
 })
 
 const rootReducer = (state, action) => {
