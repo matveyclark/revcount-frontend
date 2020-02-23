@@ -4,14 +4,16 @@ import API from '../API'
 export default class NewRevisionModal extends Component {
 
     createRevision = e => {
+        const { selectedProject, username, addRevision } = this.props
         e.preventDefault()
-        API.createRevision(e, this.props.selectedProject.id, this.props.username)
+        API.createRevision(e, selectedProject.id, username)
         .then(revision => {
-            this.props.addRevision(revision)
+            addRevision(revision)
         })
     }
 
     render() {
+        const { hideModal } = this.props
         return (
             <div className="modal">
                 <div className="modal--element">
@@ -22,7 +24,7 @@ export default class NewRevisionModal extends Component {
                         <input name="revision" className="modal--input" type="text"></input>
                         <button className="modal--submitbtn" type="submit" value="Add Revision">Create Revision</button>
                     </form>
-                    <button onClick={this.props.hideModal}>Close</button>
+                    <button onClick={hideModal}>Close</button>
                 </div>
             </div>
         )

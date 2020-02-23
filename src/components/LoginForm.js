@@ -9,21 +9,20 @@ export default class LoginForm extends Component {
     }
 
     handleSubmit = e => {
+        const { login, history } = this.props
         e.preventDefault()
         API.login(this.state)
         .then(data => {
             if(data.error) throw Error(data.error)
-            this.props.login(data.user, data.user_type)
+            login(data.user, data.user_type)
             localStorage.token = data.token
-            this.props.history.push('/dashboard')
+            history.push('/dashboard')
         }).catch(error => alert(error))
     }
 
     handleChange = e => {
         const { name, value } = e.target
-        this.setState({
-            [name]: value
-        })
+        return this.setState({ [name]: value })
     }
 
     render() {

@@ -12,23 +12,23 @@ class NewProjectModal extends Component {
 
     handleChange = e => {
         const { name, value } = e.target
-        return this.setState({
-            [name]: value
-        })
+        return this.setState({ [name]: value })
     }
 
     createProject = e => {
+        const { createProject, hideModal } = this.props
         e.preventDefault()
         return API.createNewProject(this.state)
         .then(data => {
             console.log(data)
             if(data.error) throw Error(data.error)
-            this.props.createProject(data.project)
-            this.props.hideModal()
+            createProject(data.project)
+            hideModal()
         }).catch(error => alert(error))
     }
 
     render() {
+        const { hideModal } = this.props
         return (
             <div className="modal">
                 <div className="modal--element">
@@ -44,7 +44,7 @@ class NewProjectModal extends Component {
                         <input onChange={this.handleChange} className="modal--input project" type="text" name="email" />
                         <button className="modal--submitbtn" type="submit" value="Add Revision">Create Project</button>
                     </form>
-                    <button onClick={this.props.hideModal}>Close</button>
+                    <button onClick={hideModal}>Close</button>
                 </div>
             </div>
         )

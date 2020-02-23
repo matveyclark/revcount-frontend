@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 
 export default class Revision extends Component {
     render() {
+        const { revision, selectRevision } = this.props
         return (
-            <div onClick={() => this.props.selectRevision(this.props.revision)} className="revision" >
-                <p className="revision--info">{this.props.revision.description}</p>
-                <p className="revision--info">{this.props.revision.created_at}</p>
-                <p className="revision--info">{this.props.revision.updated_at}</p>
-                <p className={this.props.revision.status === 'completed' ? "revision--info revision--info__completed" : "revision--info revision--info__working"}>{this.props.revision.status}</p>
+            <div onClick={() => selectRevision(revision)} className="revision" >
+                <p className="revision--info">{revision.description}</p>
+                <p className="revision--info">{revision.created_at}</p>
+                <p className="revision--info">{revision.updated_at}</p>
+                <p className={revision.status === 'completed' ? "revision--info revision--info__completed" : "revision--info revision--info__working"}>{revision.status}</p>
             </div>
         )
     }

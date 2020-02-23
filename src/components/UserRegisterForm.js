@@ -22,23 +22,23 @@ export default class PMRegisterForm extends Component {
 
     handleChange = e => {
         const { name, value } = e.target
-        return this.setState({
-            [name]: value
-        })
+        return this.setState({ [name]: value })
     }
 
     registerUser = e => {
+        const { isClient, login, history } = this.props
         e.preventDefault()
-        API.register(this.state, this.props.isClient)
+        API.register(this.state, isClient)
         .then(data => {
             if(data.error) throw Error(data.error)
-            this.props.login(data.data.email, data.user_type)
+            login(data.data.email, data.user_type)
             localStorage.token = data.token
-            this.props.history.push('/dashboard')
+            history.push('/dashboard')
         }).catch(error => alert(error))
     }
 
     render() {
+        const { starterEmail } = this.props
         return (
             <form onSubmit={this.registerUser} className="register--form">
                 <label htmlFor="firstName" className="login--label">first name</label>
@@ -46,7 +46,7 @@ export default class PMRegisterForm extends Component {
                 <label htmlFor="lastName" className="login--label">last name</label>
                 <input onChange={this.handleChange} name="lastName" type="text" className="login--input"/>
                 <label htmlFor="email" className="login--label">email</label>
-                <input onChange={this.handleChange} name="email" type="text" className="login--input" value={ this.props.starterEmail ? this.props.starterEmail : null } />
+                <input onChange={this.handleChange} name="email" type="text" className="login--input" value={ starterEmail ? starterEmail : null } />
                 <label htmlFor="password" className="login--label">password</label>
                 <input onChange={this.handleChange} name="password" type="password" className="login--input"/>
                 <label htmlFor="company" className="login--label">company name</label>

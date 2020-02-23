@@ -12,11 +12,12 @@ class ProjectRevisions extends Component {
     }
 
     render() {
+        const { selectedProject, showingModal, username, selectedRevision, revision } = this.props
         return (
             <div className="revision-list">
                 <div className="revision--list__header">
-                    <h4 className="project--select" >{this.props.selectedProject ? <h4 className="highlight" >{this.props.selectedProject.name}</h4> : "Please select a project"}</h4>
-                    <div onClick={this.props.showingModal} className="add--revision">
+                    <h4 className="project--select" >{selectedProject ? <h4 className="highlight" >{selectedProject.name}</h4> : "Please select a project"}</h4>
+                    <div onClick={showingModal} className="add--revision">
                         <img className="add--revision__icon" src={plus} alt="plus icon"/>
                     </div>
                 </div>
@@ -26,7 +27,7 @@ class ProjectRevisions extends Component {
                     <h4 className="revision--header__title">Updated on</h4>
                     <h4 className="revision--header__title">Status</h4>
                 </div>
-                {this.props.selectedRevision ? <RevisionInfo username={this.props.username} revision={this.props.revision} selectedRevision={this.props.selectedRevision} /> : this.renderRevisions()}
+                {selectedRevision ? <RevisionInfo username={username} revision={revision} selectedRevision={selectedRevision} /> : this.renderRevisions()}
             </div>
         )
     }

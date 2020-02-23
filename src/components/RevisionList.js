@@ -13,23 +13,14 @@ export default class RevisionList extends Component {
     componentDidMount() {
         if(this.props.selectedProject) {
             API.getSingleProject(this.props.selectedProject.id)
-            .then(data => {
-                return this.setState({ revisions: data.data })
-            })
+            .then(data => this.setState({ revisions: data.data }))
         }
     }
 
-    showModal = () => {
-        return this.setState({
-            showModal: true
-        })
-    }
+    showModal = () => this.setState({ showModal: true })
 
-    hideModal = () => {
-        return this.setState({
-            showModal: false
-        })
-    }
+    hideModal = () => this.setState({ showModal: false })
+    
 
     addRevision = revision => {
         return this.setState({
@@ -40,10 +31,21 @@ export default class RevisionList extends Component {
     }
 
     render() {
+        const { revisions, showModal } = this.state
+        const { selectedProject } = this.props
         return (
             <React.Fragment>
-                <ProjectRevisions revisions={this.state.revisions} selectedProject={this.props.selectedProject} showModal={this.state.showModal} showingModal={this.showModal} />
-                {this.state.showModal && <NewRevisionModal hideModal={this.hideModal} addRevision={this.addRevision} selectedProject={this.props.selectedProject} />}
+                <ProjectRevisions 
+                revisions={revisions} 
+                selectedProject={selectedProject} 
+                showModal={showModal} 
+                showingModal={this.showModal} />
+
+                {showModal 
+                && <NewRevisionModal 
+                hideModal={this.hideModal} 
+                addRevision={this.addRevision} 
+                selectedProject={selectedProject} />}
             </React.Fragment>
         )
     }

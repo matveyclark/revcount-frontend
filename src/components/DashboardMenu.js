@@ -10,35 +10,29 @@ export default class DashboardMenu extends Component {
     }
 
     viewProjects = () => {
-        return this.setState({
-            ...this.state,
-            viewProjects: !this.state.viewProjects
-        })
+        return this.setState({ viewProjects: !this.state.viewProjects })
     }
 
     renderProjects = () => {
-        if(this.state.viewProjects === true) {
-            return this.props.projects.map(project => {
-                return <li onClick={() => {this.props.selectProject(project)}} className="dashboard--list__item" ><Link className="dashboard--menu__link dashboard--menu__project"><span className="dashboard--link__icon" role="img" aria-label="hands-emoji" >🧠</span>{project.name}</Link></li>
+        const { projects, selectProject } = this.props
+        const { viewProjects } = this.state
+        if(viewProjects === true) {
+            return projects.map(project => {
+                return <li onClick={() => { selectProject(project) }} 
+                className="dashboard--list__item" >
+                <Link className="dashboard--menu__link dashboard--menu__project">
+                <span className="dashboard--link__icon" role="img" aria-label="hands-emoji" >🧠</span>{project.name}</Link></li>
             })
         }
     }
 
-    showModal = () => {
-        return this.setState({
-            ...this.state,
-            showModal: true
-        })
-    }
+    showModal = () => this.setState({ showModal: true })
 
-    hideModal = () => {
-        return this.setState({
-            ...this.state,
-            showModal: false
-        })
-    }
+    hideModal = () => this.setState({ showModal: false })
 
     render() {
+        const { logout } = this.props
+        const { showModal } = this.state
         return (
             <div className="dashboard--menu">
                 <div className="dashboard--menu__section">
@@ -56,11 +50,13 @@ export default class DashboardMenu extends Component {
                         Settings
                     </h4>
                     <ul className="dashboard--section__list">
-                        <li onClick={this.props.logout} className="dashboard--list__item" ><p className="dashboard--menu__link" ><span className="dashboard--link__icon" role="img" aria-label="crying-emoji" >😢</span>Logout</p></li>
+                        <li onClick={logout} className="dashboard--list__item" ><p className="dashboard--menu__link" ><span className="dashboard--link__icon" role="img" aria-label="crying-emoji" >😢</span>Logout</p></li>
                         <li onClick={this.showModal} className="dashboard--list__item" ><p className="dashboard--menu__link"><span className="dashboard--link__icon" role="img" aria-label="bang-emoji" >💥</span>Create New Project</p></li>
                     </ul>
                 </div>
-                {this.state.showModal && <NewProjectModal hideModal={this.hideModal} />}
+                {showModal 
+                && <NewProjectModal 
+                hideModal={this.hideModal} />}
             </div>
         )
     }
