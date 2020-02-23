@@ -7,6 +7,7 @@ const projectsURI = baseURI + '/projects/'
 const newRevisionURI = baseURI + '/revision/new'
 const newProjectURI = baseURI + '/project/new'
 const singleRevisionURI = baseURI + '/revision/'
+const newCommentURI = baseURI + '/comment/new'
 
 // api
 const get = (url) => {
@@ -92,3 +93,14 @@ exports.createRevision = (e, projectId) => {
 
 // comments
 exports.getRevisionComments = id => get(singleRevisionURI + id + '/comments')
+
+exports.createNewComment = (comment, username, revision) => {
+    let bodyObject = {
+        comment: {
+            content: comment,
+            user: username,
+            revision_id: revision.id
+        }
+    }
+    return post(newCommentURI, bodyObject)
+}

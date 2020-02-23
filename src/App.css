@@ -482,3 +482,60 @@ body {
 .modal--input.project {
     height: 2rem;
 }
+
+/* Revision info component */
+
+.revision--info__title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1em;
+}
+
+.revision--info__content {
+    font-size: 1rem;
+    margin-bottom: 1em;
+}
+
+.comments--header {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.no-comments--messsage {
+    font-size: 1rem;
+}
+
+/* Comment input component */
+
+.comment--input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5em;
+}
+
+.post--comment__btn {
+    width: 9rem;
+    padding: .5em 2em;
+    border: 2px solid #6534ff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: .8rem;
+    font-weight: 900;
+    transition: .2s ease;
+    color: #6534ff;
+    margin: 0 auto;
+}
+
+.post--comment__btn:hover {
+    background-color: #6534ff;
+    color: #fff;
+}
+
+.comment--input__field {
+    width: 80%;
+    margin: 0 auto;
+    height: 3rem;
+    font-size: 1rem;
+    padding: 2em;
+    margin-bottom: .5em;
+}

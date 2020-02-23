@@ -26,7 +26,7 @@ class ProjectRevisions extends Component {
                     <h4 className="revision--header__title">Updated on</h4>
                     <h4 className="revision--header__title">Status</h4>
                 </div>
-                {this.props.selectedRevision ? <RevisionInfo selectedRevision={this.props.selectedRevision} /> : this.renderRevisions()}
+                {this.props.selectedRevision ? <RevisionInfo username={this.props.username} revision={this.props.revision} selectedRevision={this.props.selectedRevision} /> : this.renderRevisions()}
             </div>
         )
     }
@@ -34,7 +34,9 @@ class ProjectRevisions extends Component {
 
 const mapStateToProps = state => {
     return {
-        selectedRevision: state.revisionReducer.selectedRevision
+        selectedRevision: state.revisionReducer.selectedRevision,
+        username: state.userReducer.username,
+        revision: state.revisionReducer.selectedRevision
     }
 }
 
