@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Comment from './Comment'
-import CommentInput from './CommentInput'
-import API from '../API'
+import Comment from '../comment/Comment'
+import CommentInput from '../comment/CommentInput'
+import API from '../../API'
 
 export default class RevisionInfo extends Component {
 

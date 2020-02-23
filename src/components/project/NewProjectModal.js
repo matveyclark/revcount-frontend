@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import API from '../API'
+import React, { Component } from '../../../node_modules/react'
+import { connect } from '../../../node_modules/react-redux'
+import API from '../../API'
 
 class NewProjectModal extends Component {
 

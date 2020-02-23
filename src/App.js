@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
-import Header from './components/Layout/Header'
-import LoginForm from './components/LoginForm'
-import Homepage from './components/Pages/Homepage'
-import Dashboard from './components/Pages/Dashboard'
-import RegisterForm from './components/RegisterForm'
+import Header from './components/layout/Header'
+import LoginForm from './components/auth/LoginForm'
+import Homepage from './components/pages/Homepage'
+import Dashboard from './components/pages/Dashboard'
+import RegisterForm from './components/auth/RegisterForm'
 import { connect } from 'react-redux'
 import API from './API'
 import './App.css';
@@ -23,14 +23,15 @@ class App extends React.Component {
   }
 
   render() {
+    const { username, logout, login, history } = this.props
     return (
       <React.Fragment>
-        <Header username={this.props.username} logout={this.props.logout} />
+        <Header username={username} logout={logout} />
           <Switch>
             <Route exact path="/" component={(props) => <Homepage {...props} />} />
-            <Route path="/login" component={(props) => <LoginForm login={this.props.login} {...props} />} />
-            <Route path="/register" component={(props) => <RegisterForm {...props} history={this.props.history} login={this.props.login} />} />
-            <Route path="/dashboard" component={(props) => <Dashboard {...props} username={this.props.username} /> } />
+            <Route path="/login" component={(props) => <LoginForm login={login} {...props} />} />
+            <Route path="/register" component={(props) => <RegisterForm {...props} history={history} login={login} />} />
+            <Route path="/dashboard" component={(props) => <Dashboard {...props} username={username} /> } />
           </Switch>
       </React.Fragment>
     );

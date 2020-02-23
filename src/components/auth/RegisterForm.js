@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import RegisterRolePicker from '../components/RegisterRolePicker'
-import UserRegisterForm from '../components/UserRegisterForm'
-import { connect } from 'react-redux'
+import React, { Component } from '../../../node_modules/react'
+import RegisterRolePicker from './RegisterRolePicker'
+import UserRegisterForm from './UserRegisterForm'
+import { connect } from '../../../node_modules/react-redux'
 
 class RegisterForm extends Component {
 

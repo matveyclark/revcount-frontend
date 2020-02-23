@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NewProjectModal from './NewProjectModal'
+import NewProjectModal from '../project/NewProjectModal'
 import { Link } from 'react-router-dom'
 
 export default class DashboardMenu extends Component {

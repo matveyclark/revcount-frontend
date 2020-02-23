@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import API from '../API'
+import React, { Component } from '../../../node_modules/react'
+import API from '../../API'
 
 export default class PMRegisterForm extends Component {
 
@@ -46,7 +46,10 @@ export default class PMRegisterForm extends Component {
                 <label htmlFor="lastName" className="login--label">last name</label>
                 <input onChange={this.handleChange} name="lastName" type="text" className="login--input"/>
                 <label htmlFor="email" className="login--label">email</label>
-                <input onChange={this.handleChange} name="email" type="text" className="login--input" value={ starterEmail ? starterEmail : null } />
+                <input onChange={this.handleChange} name="email" type="text" className="login--input" value=
+                {starterEmail 
+                ? starterEmail 
+                : null } />
                 <label htmlFor="password" className="login--label">password</label>
                 <input onChange={this.handleChange} name="password" type="password" className="login--input"/>
                 <label htmlFor="company" className="login--label">company name</label>

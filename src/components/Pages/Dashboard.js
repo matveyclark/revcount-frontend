@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from '../../../node_modules/react'
 import API from '../../API'
-import { connect } from 'react-redux'
-import RevisionList from '../RevisionList'
-import DashboardMenu from '../DashboardMenu'
+import { connect } from '../../../node_modules/react-redux'
+import RevisionList from '../revision/RevisionList'
+import DashboardMenu from '../dashboard/DashboardMenu'
 
 class Dashboard extends Component {
 

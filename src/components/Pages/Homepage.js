@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from '../../../node_modules/react'
 import About from './About'
-import EmailInputForm from '../EmailInputForm'
+import EmailInputForm from '../layout/EmailInputForm'
 
 export default class Homepage extends Component {
 

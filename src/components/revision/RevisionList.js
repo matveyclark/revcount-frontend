@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ProjectRevisions from './ProjectRevisions'
+import ProjectRevisions from '../project/ProjectRevisions'
 import NewRevisionModal from './NewRevisionModal'
-import API from '../API'
+import API from '../../API'
 
 export default class RevisionList extends Component {
 

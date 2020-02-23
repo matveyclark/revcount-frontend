@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import API from '../API'
+import API from '../../API'
 
 export default class NewRevisionModal extends Component {
 

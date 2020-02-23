@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from '../../../node_modules/react'
 import downArrow from '../../images/scroll-down-icon.svg'
 
 export default class About extends Component {

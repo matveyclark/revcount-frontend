@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import API from '../API'
+import React, { Component } from '../../../node_modules/react'
+import API from '../../API'
 
 export default class LoginForm extends Component {
 
