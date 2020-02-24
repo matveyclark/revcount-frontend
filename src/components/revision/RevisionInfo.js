@@ -34,7 +34,10 @@ export default class RevisionInfo extends Component {
                 Comments: </h1>
                 {comments.length > 0 
                 ? 
-                this.renderComments() 
+                <div 
+                className="comment--section">
+                    {this.renderComments()}
+                </div> 
                 : <p 
                 className="no-comments--messsage">
                 Nobody has left a comment yet...</p> }

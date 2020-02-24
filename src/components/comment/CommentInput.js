@@ -19,7 +19,8 @@ export default class CommentInput extends Component {
         .then(data => {
             let comment = {
                 content: data.data,
-                user: data.user
+                user: data.user,
+                user_type: data.user_type
             }
             if(data.error) throw Error(data.error)
             addComment(comment)
