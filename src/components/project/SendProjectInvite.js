@@ -10,11 +10,11 @@ export default class SendProjectInvite extends React.Component {
     handleChange = e => this.setState({ email: e.target.value })
 
     sendInvite = e => {
+        const { hideModal } = this.props
+        const { email } = this.state
         e.preventDefault()
-        return API.inviteClient(this.state.email)
-        .then(data => {
-            console.log(data)
-        })
+        return API.inviteClient(email)
+        .then(hideModal)
     }
 
     render() {

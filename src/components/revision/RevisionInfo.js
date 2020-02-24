@@ -40,8 +40,7 @@ export default class RevisionInfo extends Component {
                 Nobody has left a comment yet...</p> }
                 <CommentInput 
                 addComment={this.addComment} 
-                username={username} 
-                revision={revision} />
+                username={username} revision={revision} />
             </div>
         )
     }

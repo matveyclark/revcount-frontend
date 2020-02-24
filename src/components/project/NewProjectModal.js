@@ -46,6 +46,7 @@ class NewProjectModal extends Component {
                 createProject={this.createProject}
                 clientIsRegistered={clientIsRegistered}
                 handleChange={this.handleChange}
+                hideModal={hideModal}
                  />
                     <button onClick={hideModal}>Close</button>
                 </div>
