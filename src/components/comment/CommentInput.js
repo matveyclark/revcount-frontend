@@ -17,8 +17,12 @@ export default class CommentInput extends Component {
         e.preventDefault()
         return API.createNewComment(content, username, revision)
         .then(data => {
+            let comment = {
+                content: data.data,
+                user: data.user
+            }
             if(data.error) throw Error(data.error)
-            addComment(data.data)
+            addComment(comment)
         }).catch(error => alert(error))
     }
 
