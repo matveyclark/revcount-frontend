@@ -569,5 +569,69 @@ body {
 /* Comment component */
 
 .comment--box {
-    
+    border: 2px solid rgba(211, 211, 211, .6);
+    border-radius: 8px;
+    position: relative;
+    width: 50%;
+}
+
+.comment--box__pm {
+    margin-left: auto;
+    position: relative;
+}
+
+.comment--box:not(:last-of-type) {
+    margin-bottom: 2em;
+}
+
+.comment--box::after {
+    content: '';
+    position: absolute;
+    top: -4%;
+    left: -4%;
+    height: 20px;
+    width: 15px;
+    background-color: rgba(211, 211, 211, .6);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+.comment--box__pm::after {
+    display: none;
+}
+
+.comment--box__pm::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -4%;
+    height: 20px;
+    width: 15px;
+    background-color: rgba(211, 211, 211, .6);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    transform: rotate(180deg)
+}
+
+.comment--box__header {
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.comment--header__user {
+    font-size: .8rem;
+}
+
+.client--comment {
+    padding: .2em 1.5em;
+    border-radius: 8px;
+    background-color: rgba(142, 255, 193, .6);
+}
+
+.pm--comment {
+    background-color: rgba(240, 52, 52, .6);
+    padding: .2em 1.5em;
+    border-radius: 8px;
+}
+
+.comment--content {
+    font-size: 1rem;
 }
