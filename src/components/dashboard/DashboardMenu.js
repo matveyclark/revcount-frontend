@@ -9,9 +9,7 @@ export default class DashboardMenu extends Component {
         showModal: false
     }
 
-    viewProjects = () => {
-        return this.setState({ viewProjects: !this.state.viewProjects })
-    }
+    viewProjects = () => this.setState({ viewProjects: !this.state.viewProjects })
 
     renderProjects = () => {
         const { projects, selectProject } = this.props

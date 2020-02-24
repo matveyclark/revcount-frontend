@@ -23,11 +23,25 @@ export default class RevisionInfo extends Component {
         const { comments } = this.state
         return (
             <div className="revision--info__box">
-                <h1 className="revision--info__title">{selectedRevision.description}</h1>
-                <p className="revision--info__content">{selectedRevision.content}</p>
-                <h1 className="comments--header">Comments: </h1>
-                {comments.length > 0 ? this.renderComments() : <p className="no-comments--messsage">Nobody has left a comment yet...</p> }
-                <CommentInput addComment={this.addComment} username={username} revision={revision} />
+                <h1 
+                className="revision--info__title">
+                {selectedRevision.description}</h1>
+                <p 
+                className="revision--info__content">
+                {selectedRevision.content}</p>
+                <h1 
+                className="comments--header">
+                Comments: </h1>
+                {comments.length > 0 
+                ? 
+                this.renderComments() 
+                : <p 
+                className="no-comments--messsage">
+                Nobody has left a comment yet...</p> }
+                <CommentInput 
+                addComment={this.addComment} 
+                username={username} 
+                revision={revision} />
             </div>
         )
     }

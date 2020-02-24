@@ -18,11 +18,16 @@ class Dashboard extends Component {
     }
 
     render() {
+        const { logout, projects, selectProject, selectedProject } = this.props
         return (
             <section>
                 <div className="dashboard">
-                    <DashboardMenu logout={this.props.logout} projects={this.props.projects} selectProject={this.props.selectProject} />
-                    <RevisionList selectedProject={this.props.selectedProject} />
+                    <DashboardMenu 
+                    logout={logout} 
+                    projects={projects} 
+                    selectProject={selectProject} />
+                    <RevisionList 
+                    selectedProject={selectedProject} />
                 </div>
             </section>
         )

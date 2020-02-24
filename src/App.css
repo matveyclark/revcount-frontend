@@ -483,6 +483,32 @@ body {
     height: 2rem;
 }
 
+/* Modal menu */
+
+.modal--menu {
+    width: 100%;
+    display: flex;
+}
+
+.menu--send__invite {
+    font-size: 1rem;
+    color: #000;
+    border: 1px solid #6534ff;
+    cursor: pointer;
+}
+
+.menu--create__project {
+    color: #000;
+    border: 1px solid #6534ff;
+    cursor: pointer;
+    padding: .1em;
+}
+
+.modal--menu__active {
+    background-color: #6534ff;
+    color: #fff;
+}
+
 /* Revision info component */
 
 .revision--info__title {

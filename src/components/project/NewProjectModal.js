@@ -1,5 +1,6 @@
 import React, { Component } from '../../../node_modules/react'
 import { connect } from '../../../node_modules/react-redux'
+import ModalMenu from './ModalMenu'
 import API from '../../API'
 
 class NewProjectModal extends Component {
@@ -7,7 +8,8 @@ class NewProjectModal extends Component {
     state = {
         name: null,
         maxRevisions: null,
-        email: null
+        email: null,
+        clientIsRegistered: false
     }
 
     handleChange = e => {
@@ -20,30 +22,31 @@ class NewProjectModal extends Component {
         e.preventDefault()
         return API.createNewProject(this.state)
         .then(data => {
-            console.log(data)
             if(data.error) throw Error(data.error)
             createProject(data.project)
             hideModal()
         }).catch(error => alert(error))
     }
 
+    toggleRegisteredClient = () => {
+        return this.setState({ clientIsRegistered: true })
+    }
+
+    toggleClientNotRegistered = () => this.setState({ clientIsRegistered: false })
+
     render() {
         const { hideModal } = this.props
+        const { clientIsRegistered } = this.state
         return (
             <div className="modal">
                 <div className="modal--element">
-                    <h3 className="modal--header">
-                        Create a new <span className="highlight">project <br /> </span>
-                    </h3>
-                    <form onSubmit={this.createProject} className="modal--form">
-                        <label className="modal--label" htmlFor="name">Project name</label>
-                        <input onChange={this.handleChange} className="modal--input project" type="text" name="name"/>
-                        <label className="modal--label" htmlFor="maxRevisions">Max Revisions</label>
-                        <input onChange={this.handleChange} className="modal--input project" type="number" name="maxRevisions" />
-                        <label className="modal--label" htmlFor="email">Client e-mail</label>
-                        <input onChange={this.handleChange} className="modal--input project" type="text" name="email" />
-                        <button className="modal--submitbtn" type="submit" value="Add Revision">Create Project</button>
-                    </form>
+                <ModalMenu
+                toggleRegisteredClient={this.toggleRegisteredClient}
+                toggleClientNotRegistered={this.toggleClientNotRegistered}
+                createProject={this.createProject}
+                clientIsRegistered={clientIsRegistered}
+                handleChange={this.handleChange}
+                 />
                     <button onClick={hideModal}>Close</button>
                 </div>
             </div>

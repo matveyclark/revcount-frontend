@@ -8,6 +8,7 @@ const newRevisionURI = baseURI + '/revision/new'
 const newProjectURI = baseURI + '/project/new'
 const singleRevisionURI = baseURI + '/revision/'
 const newCommentURI = baseURI + '/comment/new'
+const inviteClientURI = baseURI + '/project/invite'
 
 // api
 const get = (url) => {
@@ -78,6 +79,13 @@ exports.createNewProject = project => {
             }
     }
     return post(newProjectURI, bodyObject)
+}
+
+exports.inviteClient = email => {
+    let bodyObject = {
+        email 
+    }
+    return post(inviteClientURI, bodyObject)
 }
 
 // revisions
