@@ -108,8 +108,9 @@ exports.createNewComment = (comment, username, revision, image) => {
     formData.append('email', username)
     formData.append('content', comment)
     formData.append('revision', revision.id)
-    fetch(newCommentURI, {
+    return fetch(newCommentURI, {
         method: "POST",
         body: formData 
     })
+    .then(resp => resp.json())
 }
