@@ -102,13 +102,14 @@ exports.createRevision = (e, projectId) => {
 // comments
 exports.getRevisionComments = id => get(singleRevisionURI + id + '/comments')
 
-exports.createNewComment = (comment, username, revision) => {
-    let bodyObject = {
-        comment: {
-            content: comment,
-            user: username,
-            revision_id: revision.id
-        }
-    }
-    return post(newCommentURI, bodyObject)
+exports.createNewComment = (comment, username, revision, image) => {
+    const formData = new FormData()
+    formData.append('screenshot', image)
+    formData.append('email', username)
+    formData.append('content', comment)
+    formData.append('revision', revision.id)
+    fetch(newCommentURI, {
+        method: "POST",
+        body: formData 
+    })
 }

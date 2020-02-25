@@ -4,18 +4,23 @@ import API from '../../API'
 export default class CommentInput extends Component {
 
     state = {
-        content: null
+        content: null,
+        screenShot: null
     }
 
     handleChange = e => {
         return this.setState({ content: e.target.value })
     }
 
+    handleImageUpload = e => {
+        return this.setState({ screenShot: e.target.files[0] })
+    }
+
     createComment = e => {
-        const { content } = this.state
+        const { content, screenShot } = this.state
         const { addComment, username, revision } = this.props
         e.preventDefault()
-        return API.createNewComment(content, username, revision)
+        return API.createNewComment(content, username, revision, screenShot)
         .then(data => {
             let comment = {
                 content: data.data,
@@ -41,6 +46,10 @@ export default class CommentInput extends Component {
                 onClick={this.createComment} 
                 type="submit" 
                 className="post--comment__btn">Post Comment</button>
+
+            <form>
+                <input onChange={this.handleImageUpload} name="screenshot" id="screenshot" type="file"/>
+            </form>
             </div>
         )
     }
