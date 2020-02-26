@@ -32,6 +32,17 @@ const post = (url, bodyObject) => {
     }).then(resp => resp.json())
 }
 
+const patch = (url, id, bodyObject) => {
+    return fetch(url + id, {
+        method: 'PATCH',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(bodyObject)
+    }).then(resp => resp.json())
+}
+
 // export functions
 
 // global
@@ -97,6 +108,15 @@ exports.createRevision = (e, projectId) => {
         }
     }
     return post(newRevisionURI, bodyObject)
+}
+
+exports.markAsComplete = id => {
+    let bodyObject = {
+        revision: {
+            status: 'completed'
+        }
+    }
+    return patch(singleRevisionURI, id, bodyObject)
 }
 
 // comments
