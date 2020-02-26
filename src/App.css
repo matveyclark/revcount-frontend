@@ -646,6 +646,12 @@ body {
     transform: translate(-30px, -2px);
 }
 
+.comment--body {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .comment--content {
     font-size: 1rem;
 }

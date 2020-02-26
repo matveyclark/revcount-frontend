@@ -25,7 +25,8 @@ export default class CommentInput extends Component {
             let comment = {
                 content: data.data,
                 user: data.user,
-                user_type: data.user_type
+                user_type: data.user_type,
+                attachment: data.screenshot
             }
             if(data.error) throw Error(data.error)
             addComment(comment)

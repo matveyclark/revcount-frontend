@@ -10,7 +10,10 @@ export default function Comment({ comment }) {
                 ? "comment--header__user client--comment" 
                 : "comment--header__user pm--comment"} >{comment.user}</p>
             </div>
-            <p className="comment--content" >{comment.content}</p>
+            <div className="comment--body">
+                <p className="comment--content" >{comment.content}</p>
+                {comment.attachment && <p>Screenshot attached</p>}
+            </div>
         </div>
     )
 }
