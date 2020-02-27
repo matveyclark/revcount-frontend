@@ -8,8 +8,9 @@ export default class NewRevisionModal extends Component {
         e.preventDefault()
         API.createRevision(e, selectedProject.id)
         .then(revision => {
+            if(revision.error) throw Error(revision.error)
             addRevision(revision)
-        })
+        }).catch(error => alert(error))
     }
 
     render() {
