@@ -18,13 +18,6 @@ export default class RevisionInfo extends Component {
 
     renderComments = () => this.state.comments.map(comment => <Comment comment={comment} /> )
 
-    completeRevision = () => {
-        return API.markAsComplete(this.props.selectedRevision.id)
-        .then(data => {
-            if(data.error) throw Error(data.error)
-            console.log(data)
-        }).catch(error => alert(error))
-    }
 
     render() {
         const { selectedRevision, username, revision } = this.props
@@ -52,7 +45,6 @@ export default class RevisionInfo extends Component {
                 <CommentInput 
                 addComment={this.addComment} 
                 username={username} revision={revision} />
-                <button onClick={this.completeRevision} className="compelte--revision--btn">Mark as complete</button>
             </div>
         )
     }

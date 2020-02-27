@@ -1,35 +1,43 @@
 import React, { Component } from '../../../node_modules/react'
-import Revision from '../revision/Revision'
-import plus from '../../images/plus-icon.svg'
 import { connect } from '../../../node_modules/react-redux'
 import RevisionInfo from '../revision/RevisionInfo'
 import RevisionsHeader from '../revision/RevisionsHeader'
+import RevisionItems from '../revision/RevisionItems'
+import API from '../../API'
 
 class ProjectRevisions extends Component {
 
-
-    renderRevisions = () => {
-        return this.props.revisions.map(revision => <Revision selectRevision={this.props.selectRevision} revision={revision} /> )
+    completeRevision = () => {
+        return API.markAsComplete(this.props.selectedRevision.id)
+        .then(data => {
+            if(data.error) throw Error(data.error)
+        }).catch(error => alert(error))
     }
 
     render() {
-        const { selectedProject, showingModal, username, selectedRevision, revision } = this.props
+        const { selectedProject, showingModal, username, selectRevision, revision, revisions, selectedRevision } = this.props
         return (
             <div className="revision-list">
                 <div className="revision--list__header">
                     <h4 className="project--select" >{selectedProject 
                     ? <h4 className="highlight" >{selectedProject.name}</h4> 
                     : "Please select a project"}</h4>
-                    <div onClick={showingModal} className="add--revision">
-                        <img className="add--revision__icon" src={plus} alt="plus icon"/>
-                    </div>
+                    {selectedRevision 
+                    && <button 
+                    onClick={this.completeRevision} 
+                    className="compelte--revision--btn">Mark as complete</button>}
                 </div>
                 <RevisionsHeader />
                 {selectedRevision 
-                ? <RevisionInfo username={username} 
-                revision={revision} 
+                ? <RevisionInfo 
+                username={username} 
+                revision={revision}
                 selectedRevision={selectedRevision} /> 
-                : this.renderRevisions()}
+                : <RevisionItems 
+                revisions={revisions}
+                selectedProject={selectedProject}
+                selectRevision={selectRevision}
+                showingModal={showingModal} /> }
             </div>
         )
     }

@@ -4,9 +4,9 @@ import API from '../../API'
 export default class NewRevisionModal extends Component {
 
     createRevision = e => {
-        const { selectedProject, username, addRevision } = this.props
+        const { selectedProject, addRevision } = this.props
         e.preventDefault()
-        API.createRevision(e, selectedProject.id, username)
+        API.createRevision(e, selectedProject.id)
         .then(revision => {
             addRevision(revision)
         })

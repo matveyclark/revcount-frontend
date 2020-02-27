@@ -20,7 +20,6 @@ export default class RevisionList extends Component {
     showModal = () => this.setState({ showModal: true })
 
     hideModal = () => this.setState({ showModal: false })
-    
 
     addRevision = revision => {
         return this.setState({
@@ -38,7 +37,7 @@ export default class RevisionList extends Component {
                 <ProjectRevisions 
                 revisions={revisions} 
                 selectedProject={selectedProject} 
-                showModal={showModal} 
+                showModal={showModal}
                 showingModal={this.showModal} />
 
                 {showModal 
