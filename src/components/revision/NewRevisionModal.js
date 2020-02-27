@@ -23,6 +23,7 @@ export default class NewRevisionModal extends Component {
                     </h3>
                     <form onSubmit={this.createRevision} className="modal--form">
                         <input name="revision" className="modal--input" type="text"></input>
+                        <input type="text" className="modal--input" name="content" />
                         <button className="modal--submitbtn" type="submit" value="Add Revision">Create Revision</button>
                     </form>
                     <button onClick={hideModal}>Close</button>

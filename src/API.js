@@ -104,7 +104,8 @@ exports.createRevision = (e, projectId) => {
     let bodyObject = {
         revision: {
             project_id: projectId,
-            description: e.target.revision.value
+            description: e.target.revision.value,
+            content: e.target.content.value
         }
     }
     return post(newRevisionURI, bodyObject)
