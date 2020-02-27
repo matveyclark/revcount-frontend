@@ -653,3 +653,17 @@ body {
 .comment--content {
     font-size: 1rem;
 }
+
+.complete--revision--btn {
+    padding: .5em;
+    border: 2px solid green;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.complete--revision--btn:hover {
+    background-color: green;
+    color: #fff;
+}

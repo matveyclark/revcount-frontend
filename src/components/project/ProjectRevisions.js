@@ -8,9 +8,12 @@ import API from '../../API'
 class ProjectRevisions extends Component {
 
     completeRevision = () => {
-        return API.markAsComplete(this.props.selectedRevision.id)
+        const { history, selectedRevision, clearRevision } = this.props
+        return API.markAsComplete(selectedRevision.id)
         .then(data => {
             if(data.error) throw Error(data.error)
+            clearRevision()
+            history.push('/dashboard')
         }).catch(error => alert(error))
     }
 
@@ -25,7 +28,7 @@ class ProjectRevisions extends Component {
                     {selectedRevision 
                     && <button 
                     onClick={this.completeRevision} 
-                    className="compelte--revision--btn">Mark as complete</button>}
+                    className="complete--revision--btn">Mark as complete</button>}
                 </div>
                 <RevisionsHeader />
                 {selectedRevision 
@@ -55,6 +58,9 @@ const mapDispatchToProps = dispatch => {
     return {
         selectRevision: revision => {
             dispatch({ type: 'SELECT_REVISION', payload: revision })
+        },
+        clearRevision: () => {
+            dispatch({ type: 'CLEAR_REVISION' })
         }
     }
 }

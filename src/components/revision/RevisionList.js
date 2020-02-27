@@ -31,10 +31,11 @@ export default class RevisionList extends Component {
 
     render() {
         const { revisions, showModal } = this.state
-        const { selectedProject } = this.props
+        const { selectedProject, history } = this.props
         return (
             <React.Fragment>
                 <ProjectRevisions 
+                history={history}
                 revisions={revisions} 
                 selectedProject={selectedProject} 
                 showModal={showModal}

@@ -18,7 +18,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { logout, projects, selectProject, selectedProject } = this.props
+        const { logout, projects, selectProject, selectedProject, history } = this.props
         return (
             <section>
                 <div className="dashboard">
@@ -26,7 +26,8 @@ class Dashboard extends Component {
                     logout={logout} 
                     projects={projects} 
                     selectProject={selectProject} />
-                    <RevisionList 
+                    <RevisionList
+                    history={history}
                     selectedProject={selectedProject} />
                 </div>
             </section>
