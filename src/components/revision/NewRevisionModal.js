@@ -22,7 +22,9 @@ export default class NewRevisionModal extends Component {
                         Create a new <span className="highlight">revision <br /> </span>
                     </h3>
                     <form onSubmit={this.createRevision} className="modal--form">
+                        <label htmlFor="revision" className="revision--title__label">Title</label>
                         <input name="revision" className="modal--input" type="text"></input>
+                        <label htmlFor="revision--description__label">Content</label>
                         <input type="text" className="modal--input" name="content" />
                         <button className="modal--submitbtn" type="submit" value="Add Revision">Create Revision</button>
                     </form>
