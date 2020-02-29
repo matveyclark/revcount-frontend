@@ -3,6 +3,7 @@ import API from '../../API'
 import { connect } from '../../../node_modules/react-redux'
 import RevisionList from '../revision/RevisionList'
 import DashboardMenu from '../dashboard/DashboardMenu'
+import DashboardWelcome from '../dashboard/DashboardWelcome'
 
 class Dashboard extends Component {
 
@@ -18,7 +19,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { logout, projects, selectProject, selectedProject, history } = this.props
+        const { logout, projects, selectProject, selectedProject, history, username } = this.props
         return (
             <section>
                 <div className="dashboard">
@@ -26,9 +27,11 @@ class Dashboard extends Component {
                     logout={logout} 
                     projects={projects} 
                     selectProject={selectProject} />
-                    <RevisionList
+                    {selectedProject 
+                    ? <RevisionList
                     history={history}
                     selectedProject={selectedProject} />
+                    : <DashboardWelcome username={username} />}
                 </div>
             </section>
         )
@@ -38,7 +41,8 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
     return {
         projects: state.projectReducer.projects,
-        selectedProject: state.projectReducer.selectedProject
+        selectedProject: state.projectReducer.selectedProject,
+        username: state.userReducer.username
     }
 }
 
