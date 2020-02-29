@@ -31,7 +31,9 @@ class Dashboard extends Component {
                     ? <RevisionList
                     history={history}
                     selectedProject={selectedProject} />
-                    : <DashboardWelcome username={username} />}
+                    : <DashboardWelcome
+                    projects={projects} 
+                    username={username} />}
                 </div>
             </section>
         )
