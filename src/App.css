@@ -667,3 +667,40 @@ body {
     background-color: green;
     color: #fff;
 }
+
+/* Dashboard welcome component */
+
+.dashboard--welcome {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dashboard--welcome__title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.dashboard--welcome__select {
+    font-size: 1rem;
+    margin-top: 2em;
+}
+
+.dashboard--welcome__projects {
+    text-align: center;
+    margin-bottom: .5em;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: .2s ease;
+    font-weight: 900;
+}
+
+.dashboard--welcome__projects:hover {
+    color: #6534ff;
+}
+
+.dashboard--welcome__projects:first-of-type {
+    margin-top: 2em;
+}
