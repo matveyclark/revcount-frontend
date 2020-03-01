@@ -27,6 +27,13 @@ const projectReducer = (state = initialState, action) => {
         }
     }
 
+    if(action.type === 'CLEAR_PROJECT') {
+        return {
+            ...state,
+            selectedProject: null
+        }
+    }
+
     return state
 
 }

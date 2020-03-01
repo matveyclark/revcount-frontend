@@ -29,7 +29,7 @@ export default class DashboardMenu extends Component {
     hideModal = () => this.setState({ showModal: false })
 
     render() {
-        const { logout } = this.props
+        const { logout, clearProject } = this.props
         const { showModal } = this.state
         return (
             <div className="dashboard--menu">
@@ -38,7 +38,7 @@ export default class DashboardMenu extends Component {
                         Main menu
                     </h4>
                     <ul className="dashboard--section__list">
-                        <li className="dashboard--list__item" ><p className="dashboard--menu__link" to='/dashboard'><span className="dashboard--link__icon" role="img" aria-label="house-emoji" >🏠</span>Dashboard</p></li>
+                        <li onClick={clearProject} className="dashboard--list__item" ><p className="dashboard--menu__link" to='/dashboard'><span className="dashboard--link__icon" role="img" aria-label="house-emoji" >🏠</span>Dashboard</p></li>
                         <li onClick={this.viewProjects} className="dashboard--list__item dashboard--menu__link" ><span className="dashboard--link__icon" role="img" aria-label="hands-emoji" >🙌</span>My projects</li>
                         {this.renderProjects()}
                     </ul>

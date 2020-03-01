@@ -695,6 +695,7 @@ body {
     cursor: pointer;
     transition: .2s ease;
     font-weight: 900;
+    font-size: 1.5rem;
 }
 
 .dashboard--welcome__projects:hover {

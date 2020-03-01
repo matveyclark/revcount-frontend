@@ -19,19 +19,21 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { logout, projects, selectProject, selectedProject, history, username } = this.props
+        const { logout, projects, selectProject, selectedProject, history, username, clearProject } = this.props
         return (
             <section>
                 <div className="dashboard">
                     <DashboardMenu 
                     logout={logout} 
-                    projects={projects} 
+                    projects={projects}
+                    clearProject={clearProject} 
                     selectProject={selectProject} />
                     {selectedProject 
                     ? <RevisionList
                     history={history}
                     selectedProject={selectedProject} />
                     : <DashboardWelcome
+                    selectProject={selectProject}
                     projects={projects} 
                     username={username} />}
                 </div>
@@ -56,6 +58,9 @@ const mapDispatchToProps = dispatch => {
         selectProject: project => {
             dispatch({ type: 'SELECT_PROJECT', payload: project })
             dispatch({ type: 'CLEAR_REVISION' })
+        },
+        clearProject: () => {
+            dispatch({ type: 'CLEAR_PROJECT' })
         },
         logout: () => {
             dispatch({ type: "LOGOUT_USER" })
