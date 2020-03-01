@@ -19,7 +19,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { logout, projects, selectProject, selectedProject, history, username, clearProject } = this.props
+        const { logout, projects, selectProject, selectedProject, history, username, clearProject, userType } = this.props
         return (
             <section>
                 <div className="dashboard">
@@ -27,7 +27,8 @@ class Dashboard extends Component {
                     logout={logout} 
                     projects={projects}
                     clearProject={clearProject} 
-                    selectProject={selectProject} />
+                    selectProject={selectProject}
+                    userType={userType} />
                     {selectedProject 
                     ? <RevisionList
                     history={history}
@@ -46,7 +47,8 @@ const mapStateToProps = state => {
     return {
         projects: state.projectReducer.projects,
         selectedProject: state.projectReducer.selectedProject,
-        username: state.userReducer.username
+        username: state.userReducer.username,
+        userType: state.userReducer.userType
     }
 }
 

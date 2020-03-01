@@ -19,10 +19,13 @@ export default class SendProjectInvite extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.sendInvite}>
-                <input onChange={this.handleChange} type="text" placeholder="input email" />
-                <input onSubmit={this.sendInvite} type="submit"/>
-            </form>
+            <React.Fragment>
+                <h3 className="modal--header">Send an <span className="highlight">e-mail</span></h3>
+                <form onSubmit={this.sendInvite}>
+                    <input className="send--email__input" onChange={this.handleChange} type="text" placeholder="input email" /> <br />
+                    <input className="modal--submitbtn" onSubmit={this.sendInvite} value="send e-mail" type="submit"/>
+                </form>
+            </React.Fragment>
         )
     }
 }

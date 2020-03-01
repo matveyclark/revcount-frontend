@@ -29,7 +29,7 @@ export default class DashboardMenu extends Component {
     hideModal = () => this.setState({ showModal: false })
 
     render() {
-        const { logout, clearProject } = this.props
+        const { logout, clearProject, userType } = this.props
         const { showModal } = this.state
         return (
             <div className="dashboard--menu">
@@ -39,7 +39,7 @@ export default class DashboardMenu extends Component {
                     </h4>
                     <ul className="dashboard--section__list">
                         <li onClick={clearProject} className="dashboard--list__item" ><p className="dashboard--menu__link" to='/dashboard'><span className="dashboard--link__icon" role="img" aria-label="house-emoji" >🏠</span>Dashboard</p></li>
-                        <li onClick={this.viewProjects} className="dashboard--list__item dashboard--menu__link" ><span className="dashboard--link__icon" role="img" aria-label="hands-emoji" >🙌</span>My projects</li>
+                        <li onClick={this.viewProjects} className="dashboard--list__item dashboard--menu__link projects--menu--link" ><span className="dashboard--link__icon" role="img" aria-label="hands-emoji" >🙌</span>My projects</li>
                         {this.renderProjects()}
                     </ul>
                 </div>
@@ -49,7 +49,8 @@ export default class DashboardMenu extends Component {
                     </h4>
                     <ul className="dashboard--section__list">
                         <li onClick={logout} className="dashboard--list__item" ><p className="dashboard--menu__link" ><span className="dashboard--link__icon" role="img" aria-label="crying-emoji" >😢</span>Logout</p></li>
-                        <li onClick={this.showModal} className="dashboard--list__item" ><p className="dashboard--menu__link"><span className="dashboard--link__icon" role="img" aria-label="bang-emoji" >💥</span>Create New Project</p></li>
+                        {userType === 'pm' 
+                        && <li onClick={this.showModal} className="dashboard--list__item" ><p className="dashboard--menu__link"><span className="dashboard--link__icon" role="img" aria-label="bang-emoji" >💥</span>Create New Project</p></li>}
                     </ul>
                 </div>
                 {showModal 

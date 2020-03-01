@@ -289,12 +289,16 @@ body {
 }
 
 .dashboard--list__item {
-    margin-left: .5em;
     font-size: .65rem;
     color: #fff;
     padding: .2em;
     margin-bottom: 1em;
     cursor: pointer;
+    transition: .2s ease;
+}
+
+.dashboard--list__item:hover {
+    background-color: #bbc4ef;
 }
 
 .dashboard--link__icon {
@@ -307,6 +311,19 @@ body {
 
 .dashboard--menu__link:hover {
     opacity: 1;
+}
+
+.dashboard--section--list {
+    position: relative;
+}
+
+.projects--menu--link::after {
+    content: url('./images/scroll-down-icon.svg');
+    position: absolute;
+    top: 20%;
+    left: 9%;
+    height: 10px;
+    width: 10px;
 }
 
 .revision-list {
@@ -704,4 +721,17 @@ body {
 
 .dashboard--welcome__projects:first-of-type {
     margin-top: 2em;
+}
+
+.dashboard--welcome__noprojects {
+    font-size: 1.5rem;
+    margin-top: 3em;
+}
+
+/* Send email input component */
+
+.send--email__input {
+    width: 60%;
+    font-size: 1.5rem;
+    padding: .5em 2em;
 }

@@ -16,7 +16,7 @@ export default function DashboardWelcome({ username, projects, selectProject }) 
             <WelcomeProjectList
             selectProject={selectProject} 
             projects={projects} /> </p>
-            : <p>You dont have any active projects yet. Please get in touch with your Project Manager to receive an invite.</p>}
+            : <p className="dashboard--welcome__noprojects">You dont have any active projects yet. Please get in touch with your Project Manager to receive an invite.</p>}
         </div>
     )
 }
