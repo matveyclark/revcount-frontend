@@ -317,15 +317,6 @@ body {
     position: relative;
 }
 
-.projects--menu--link::after {
-    content: url('./images/scroll-down-icon.svg');
-    position: absolute;
-    top: 20%;
-    left: 9%;
-    height: 10px;
-    width: 10px;
-}
-
 .revision-list {
     width: 80%;
     margin: 0 auto;

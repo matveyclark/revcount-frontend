@@ -27,7 +27,7 @@ export default class CommentInput extends Component {
                 user: data.user,
                 user_type: data.user_type,
                 screenshot: data.screenshot,
-                screenshotUrl: data.screenshot_url
+                screenshot_url: data.screenshot_url
             }
             if(data.error) throw Error(data.error)
             addComment(comment)
