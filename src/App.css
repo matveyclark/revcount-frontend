@@ -726,6 +726,17 @@ body {
 .dashboard--welcome__noprojects {
     font-size: 1.5rem;
     margin-top: 3em;
+    text-align: center;
+}
+
+.dashboard--welcome__create {
+    margin-top: 3em;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6534ff;
+    font-weight: 900;
+    text-transform: lowercase;
+    text-decoration: underline;
 }
 
 /* Send email input component */

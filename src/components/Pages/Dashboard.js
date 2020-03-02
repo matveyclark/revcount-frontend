@@ -35,6 +35,7 @@ class Dashboard extends Component {
                     selectedProject={selectedProject} />
                     : <DashboardWelcome
                     selectProject={selectProject}
+                    userType={userType}
                     projects={projects} 
                     username={username} />}
                 </div>

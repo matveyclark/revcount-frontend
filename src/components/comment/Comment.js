@@ -12,7 +12,7 @@ export default function Comment({ comment }) {
             </div>
             <div className="comment--body">
                 <p className="comment--content" >{comment.content}</p>
-                {comment.screenshot && <p> <a href={comment.screenshot_url && comment.screenshot_url} download>Screenshot attached</a></p>}
+                {comment.screenshot && <p> <a href={comment.screenshot_url && comment.screenshot_url} target="_blank" rel="noopener noreferrer">Screenshot attached</a></p>}
             </div>
         </div>
     )
