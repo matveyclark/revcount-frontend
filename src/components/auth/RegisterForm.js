@@ -9,17 +9,14 @@ class RegisterForm extends Component {
         isClient: true
     }
 
-    registerProjectManager = () => {
-        return this.setState({ isClient: false })
-    }
+    registerProjectManager = () => this.setState({ isClient: false })
 
-    registerClient = () => {
-        return this.setState({ isClient: true })
-    }
+    registerClient = () => this.setState({ isClient: true })
 
     render() {
         const { history, starterEmail, login } = this.props
         const { isClient } = this.state
+        const { registerClient, registerProjectManager } = this
         return (
             <section className="register">
                 <div className="wrapper">
@@ -27,8 +24,15 @@ class RegisterForm extends Component {
                         <h1 className="register--title">
                             <span className="highlight">Hey<br /></span> there! <span role="img" aria-label="wave-emoji">🥳</span>
                         </h1>
-                        <RegisterRolePicker registerProjectManager={this.registerProjectManager} registerClient={this.registerClient} isClient={isClient} />
-                        <UserRegisterForm history={history} starterEmail={starterEmail} login={login} isClient={isClient} />
+                        <RegisterRolePicker 
+                        registerProjectManager={registerProjectManager} 
+                        registerClient={registerClient} 
+                        isClient={isClient} />
+                        <UserRegisterForm 
+                        history={history} 
+                        starterEmail={starterEmail} 
+                        login={login} 
+                        isClient={isClient} />
                     </div>
                 </div>   
             </section>

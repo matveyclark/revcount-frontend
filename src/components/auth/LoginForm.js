@@ -1,5 +1,6 @@
 import React, { Component } from '../../../node_modules/react'
 import API from '../../API'
+import UserLoginForm from './UserLoginForm'
 
 export default class LoginForm extends Component {
 
@@ -26,18 +27,16 @@ export default class LoginForm extends Component {
     }
 
     render() {
+        const { handleChange, handleSubmit } = this
         return (
             <section className="login">
                 <div className="wrapper">
                     <div className="form--wrapper">
-                        <h1 className="login--title"><span className="highlight">Welcome<br /> </span>Back!<span className="login--wave__icon" role="img" aria-label="wave-emoji">👋</span> </h1>
-                        <form onSubmit={this.handleSubmit} className="login--form">
-                            <label className="login--label" htmlFor="email">Email address</label>
-                            <input onChange={this.handleChange} type="text" name="email" className="login--input"/>
-                            <label className="login--label" htmlFor="password">Password</label>
-                            <input onChange={this.handleChange} type="password" name="password" className="login--input"/>
-                            <button className="login--input login--input__submit btn btn--register" type="submit">Log In</button>
-                        </form>
+                        <h1 className="login--title">
+                        <span className="highlight">Welcome<br /> </span>Back!<span className="login--wave__icon" role="img" aria-label="wave-emoji">👋</span> </h1>
+                        <UserLoginForm 
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit} />
                     </div>
                 </div>
             </section>

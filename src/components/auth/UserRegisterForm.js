@@ -39,22 +39,57 @@ export default class PMRegisterForm extends Component {
 
     render() {
         const { starterEmail } = this.props
+        const { registerUser, handleChange } = this
         return (
-            <form onSubmit={this.registerUser} className="register--form">
-                <label htmlFor="firstName" className="login--label">first name</label>
-                <input onChange={this.handleChange} name="firstName" type="text" className="login--input"/>
-                <label htmlFor="lastName" className="login--label">last name</label>
-                <input onChange={this.handleChange} name="lastName" type="text" className="login--input"/>
-                <label htmlFor="email" className="login--label">email</label>
-                <input onChange={this.handleChange} name="email" type="text" className="login--input" value=
+            <form 
+            onSubmit={registerUser} 
+            className="register--form">
+                <label 
+                htmlFor="firstName" 
+                className="login--label">first name</label>
+                <input 
+                onChange={handleChange} 
+                name="firstName" 
+                type="text" 
+                className="login--input"/>
+                <label 
+                htmlFor="lastName" 
+                className="login--label">last name</label>
+                <input 
+                onChange={handleChange} 
+                name="lastName" 
+                type="text" 
+                className="login--input"/>
+                <label 
+                htmlFor="email" 
+                className="login--label">email</label>
+                <input 
+                onChange={handleChange} 
+                name="email" 
+                type="text" 
+                className="login--input" 
+                value=
                 {starterEmail 
                 ? starterEmail 
                 : null } />
-                <label htmlFor="password" className="login--label">password</label>
-                <input onChange={this.handleChange} name="password" type="password" className="login--input"/>
-                <label htmlFor="company" className="login--label">company name</label>
-                <input onChange={this.handleChange} name="companyName" type="text" className="login--input"/>
-                <button className="login--input login--input__submit btn btn--register" type="submit">Register</button>
+                <label 
+                htmlFor="password" 
+                className="login--label">password</label>
+                <input 
+                onChange={handleChange} 
+                name="password" 
+                type="password" 
+                className="login--input"/>
+                <label 
+                htmlFor="company" 
+                className="login--label">company name</label>
+                <input 
+                onChange={handleChange} 
+                name="companyName" 
+                type="text" 
+                className="login--input"/>
+                <button 
+                className="login--input login--input__submit btn btn--register" type="submit">Register</button>
             </form>
         )
     }

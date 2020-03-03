@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import API from '../../API'
+import CommentInputForm from './CommentInputForm'
 
 export default class CommentInput extends Component {
 
@@ -8,13 +9,9 @@ export default class CommentInput extends Component {
         screenShot: null
     }
 
-    handleChange = e => {
-        return this.setState({ content: e.target.value })
-    }
+    handleChange = e => this.setState({ content: e.target.value })
 
-    handleImageUpload = e => {
-        return this.setState({ screenShot: e.target.files[0] })
-    }
+    handleImageUpload = e => this.setState({ screenShot: e.target.files[0] })
 
     createComment = e => {
         const { content, screenShot } = this.state
@@ -35,24 +32,14 @@ export default class CommentInput extends Component {
     }
 
     render() {
+        const { handleChange, handleImageUpload, createComment } = this
         return (
-            <form className="comment--input">
-                <input 
-                onChange={this.handleChange} 
-                type="text" 
-                name="content" 
-                className="comment--input__field" 
-                placeholder="Leave your comment here..." />
-
-                <button 
-                onClick={this.createComment} 
-                type="submit" 
-                className="post--comment__btn">Post Comment</button>
-
-                <form>
-                    <input onChange={this.handleImageUpload} name="screenshot" id="screenshot" type="file"/>
-                </form>
-            </form>
+           <React.Fragment>
+                <CommentInputForm
+                handleChange={handleChange}
+                handleImageUpload={handleImageUpload}
+                createComment={createComment} />
+           </React.Fragment>
         )
     }
 }
