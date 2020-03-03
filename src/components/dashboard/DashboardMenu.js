@@ -41,7 +41,7 @@ export default class DashboardMenu extends Component {
                 renderProjects={renderProjects} />
                 <SettingsMenuSection
                 logout={logout}
-                showModal={showModal}
+                showModal={this.showModal}
                 userType={userType} />
                 {showModal 
                 && <NewProjectModal 
