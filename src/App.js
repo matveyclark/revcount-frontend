@@ -23,10 +23,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { username, logout, login, history } = this.props
+    const { username, logout, login, history, clearProject } = this.props
     return (
       <React.Fragment>
-        <Header username={username} logout={logout} />
+        <Header username={username} logout={logout} clearProject={clearProject} />
           <Switch>
             <Route exact path="/" component={(props) => <Homepage {...props} />} />
             <Route path="/login" component={(props) => <LoginForm login={login} {...props} />} />
@@ -46,6 +46,9 @@ const mapDispatchToProps = dispatch => {
       logout: () => {
         dispatch({ type: 'LOGOUT_USER' })
         localStorage.clear()
+      },
+      clearProject: () => {
+        dispatch({ type: 'CLEAR_PROJECT' })
       }
   }
 }

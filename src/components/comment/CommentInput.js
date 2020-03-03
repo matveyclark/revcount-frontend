@@ -36,7 +36,7 @@ export default class CommentInput extends Component {
 
     render() {
         return (
-            <div className="comment--input">
+            <form className="comment--input">
                 <input 
                 onChange={this.handleChange} 
                 type="text" 
@@ -49,10 +49,10 @@ export default class CommentInput extends Component {
                 type="submit" 
                 className="post--comment__btn">Post Comment</button>
 
-            <form>
-                <input onChange={this.handleImageUpload} name="screenshot" id="screenshot" type="file"/>
+                <form>
+                    <input onChange={this.handleImageUpload} name="screenshot" id="screenshot" type="file"/>
+                </form>
             </form>
-            </div>
         )
     }
 }

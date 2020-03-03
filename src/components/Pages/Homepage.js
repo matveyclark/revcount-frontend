@@ -1,5 +1,4 @@
 import React, { Component } from '../../../node_modules/react'
-import About from './About'
 import EmailInputForm from '../layout/EmailInputForm'
 
 export default class Homepage extends Component {
@@ -25,7 +24,6 @@ export default class Homepage extends Component {
                     </div>
                     </div>
                 </section>
-                <About />
             </div>
         )
     }
