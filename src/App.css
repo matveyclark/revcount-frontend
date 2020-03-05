@@ -273,6 +273,14 @@ body {
     border-bottom-right-radius: 10px;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    background-color: #bbc4ef;
+}
+
 .dashboard--menu__title {
     font-weight: 400;
     text-transform: uppercase;
@@ -286,6 +294,7 @@ body {
     opacity: .5;
     text-decoration: none;
     transition: .1s ease;
+    display: inline-block;
 }
 
 .dashboard--list__item {
@@ -293,12 +302,9 @@ body {
     color: #fff;
     padding: .2em;
     margin-bottom: 1em;
-    cursor: pointer;
     transition: .2s ease;
-}
-
-.dashboard--list__item:hover {
-    background-color: #bbc4ef;
+    display: inline-block;
+    width: 90%;
 }
 
 .dashboard--link__icon {
@@ -306,11 +312,13 @@ body {
 }
 
 .dashboard--menu__project {
-    margin-left: 1em;
+    padding-left: 1em;
+    width: 100%;
 }
 
 .dashboard--menu__link:hover {
     opacity: 1;
+    background-color: #bbc4ef;
 }
 
 .dashboard--section--list {
