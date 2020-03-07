@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Revision({ revision, selectRevision }) {
+export default function Revision({ revision, selectRevision, projectID }) {
     return (
         <div onClick={() => selectRevision(revision)} className="revision" >
             <p className="revision--info">{revision.description}</p>

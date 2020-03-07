@@ -37,7 +37,7 @@ export default class RevisionList extends Component {
                 <ProjectRevisions 
                 history={history}
                 revisions={revisions} 
-                selectedProject={selectedProject} 
+                selectedProject={selectedProject}
                 showModal={showModal}
                 showingModal={this.showModal} />
 

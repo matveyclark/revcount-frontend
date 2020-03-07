@@ -7,7 +7,8 @@ export default function CommentInputForm({ handleChange, createComment, handleIm
             <input 
             onChange={handleChange} 
             type="text" 
-            name="content" 
+            name="content"
+            required='required' 
             className="comment--input__field" 
             placeholder="Leave your comment here..." />
 

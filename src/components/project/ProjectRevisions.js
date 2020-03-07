@@ -36,7 +36,7 @@ class ProjectRevisions extends Component {
                 username={username} 
                 revision={revision}
                 selectedRevision={selectedRevision} /> 
-                : <RevisionItems 
+                : <RevisionItems
                 revisions={revisions}
                 selectedProject={selectedProject}
                 selectRevision={selectRevision}
